@@ -1,0 +1,39 @@
+{
+  "issues": [
+    {
+      "id": "issue-1",
+      "severity": "high",
+      "description": "Hero text overlaps the background image making it completely unreadable.",
+      "element_description": "white hero heading text",
+      "viewport": "desktop"
+    },
+    {
+      "id": "issue-2",
+      "severity": "high",
+      "description": "Body text has a contrast ratio below 4.5:1 against its light-grey background, failing WCAG AA.",
+      "element_description": "low contrast body paragraph",
+      "viewport": "both"
+    },
+    {
+      "id": "issue-3",
+      "severity": "medium",
+      "description": "The primary call-to-action button is clipped by the right edge of the viewport on mobile.",
+      "element_description": "blue submit button",
+      "viewport": "mobile"
+    },
+    {
+      "id": "issue-4",
+      "severity": "medium",
+      "description": "Card grid breaks into a single overflowing row on screens narrower than 480 px instead of stacking vertically.",
+      "element_description": "product card grid",
+      "viewport": "mobile"
+    },
+    {
+      "id": "issue-5",
+      "severity": "low",
+      "description": "The page heading uses font-size 96 px — far too large relative to body text, breaking visual hierarchy.",
+      "element_description": "oversized page heading",
+      "viewport": "desktop"
+    }
+  ]
+}

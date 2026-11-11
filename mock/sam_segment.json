@@ -1,0 +1,4 @@
+{
+  "_comment": "Placeholder SAM output. In real mode this is the special-token string from the SAM 3.1 API. The Phase 2 overlay renderer treats an empty string as 'no mask found' and skips drawing the overlay gracefully.",
+  "mask_text": "<0f>0<|box;x1=120;y1=60;x2=640;y2=140;w=1280;h=800|><|mask;x=0;y=0;data=60,520,!AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==|>"
+}

@@ -1,0 +1,604 @@
+{
+  "run_id": "15fe1fa6",
+  "url": "http://127.0.0.1:8000/demo-sites/demo3.html",
+  "mock_mode": false,
+  "total_issues": 2,
+  "total_fixed": 2,
+  "total_ignored": 0,
+  "ignored": [],
+  "raw_findings_count": 17,
+  "rounds_used": 2,
+  "stop_reason": "all_fixed",
+  "fixed_html_url": "/output/15fe1fa6/fixed.html",
+  "before_screenshots": {
+    "desktop": "/output/15fe1fa6/before_desktop.png",
+    "mobile": "/output/15fe1fa6/before_mobile.png"
+  },
+  "final_after_screenshots": {
+    "desktop": "/output/15fe1fa6/after_r2_desktop.png",
+    "mobile": "/output/15fe1fa6/after_r2_mobile.png"
+  },
+  "analysis_issues": [
+    {
+      "id": "issue-1",
+      "severity": "medium",
+      "description": "Orange logo text has contrast ratio 4.16:1 on white which is below WCAG AA 4.5:1 and is hard to read.",
+      "element_description": "orange studio logo",
+      "viewport": "both",
+      "annotation_url": "/output/15fe1fa6/annotated_issue-1_sam_box.png",
+      "annotation_method": "sam_box"
+    },
+    {
+      "id": "issue-2",
+      "severity": "high",
+      "description": "Large Shop heading has contrast ratio 3.98:1 on light background which is below WCAG AA 4.5:1 and is hard to read.",
+      "element_description": "orange page heading",
+      "viewport": "both",
+      "annotation_url": "/output/15fe1fa6/before_desktop.png",
+      "annotation_method": "none"
+    },
+    {
+      "id": "issue-3",
+      "severity": "medium",
+      "description": "Active All filter button white text on orange has contrast ratio 4.16:1 which is below WCAG AA 4.5:1.",
+      "element_description": "orange filter button",
+      "viewport": "both",
+      "annotation_url": "/output/15fe1fa6/annotated_issue-3_sam_box.png",
+      "annotation_method": "sam_box"
+    },
+    {
+      "id": "issue-4",
+      "severity": "high",
+      "description": "Add to cart buttons white text on orange have contrast ratio 4.16:1 which is below WCAG AA 4.5:1 and hard to read.",
+      "element_description": "orange add button",
+      "viewport": "both",
+      "annotation_url": "/output/15fe1fa6/annotated_issue-4_sam_box.png",
+      "annotation_method": "sam_box"
+    }
+  ],
+  "per_issue": [
+    {
+      "id": "issue-1",
+      "description": "Orange logo text has contrast ratio 4.16:1 on white which is below WCAG AA 4.5:1 and is hard to read.",
+      "severity": "high",
+      "dom_type": null,
+      "dom_selector": null,
+      "dom_signal": "inconclusive",
+      "dom_before": null,
+      "dom_after": null,
+      "spark_signal": true,
+      "spark_evidence": "The 'Craft Studio' logo changed from bright orange to a much darker brown that is clearly readable on white in the after screenshot.",
+      "fixed": true,
+      "signals_agreed": true
+    },
+    {
+      "id": "issue-2",
+      "description": "Element is fully outside the visible viewport.",
+      "severity": "medium",
+      "dom_type": "outside_viewport",
+      "dom_selector": "footer",
+      "dom_signal": "fixed",
+      "dom_before": "outside viewport (target: inside)",
+      "dom_after": null,
+      "spark_signal": true,
+      "spark_evidence": "The footer copyright bar that was not visible in the before screenshot is now fully visible at the bottom of the viewport in the after screenshot.",
+      "fixed": true,
+      "signals_agreed": true
+    }
+  ],
+  "round_reports": [
+    {
+      "round": 1,
+      "fix": {
+        "run_id": "15fe1fa6",
+        "url": "http://127.0.0.1:8000/demo-sites/demo3.html",
+        "fixed_html_path": "C:\\Users\\DELL\\SiteSurgeon\\app\\..\\output\\15fe1fa6\\fixed.html",
+        "fixed_html_url": "/output/15fe1fa6/fixed.html",
+        "issues_sent": [
+          {
+            "id": "issue-1",
+            "severity": "high",
+            "description": "Orange logo text has contrast ratio 4.16:1 on white which is below WCAG AA 4.5:1 and is hard to read.",
+            "element_description": "orange studio logo",
+            "viewport": "both",
+            "annotation": {
+              "path": "C:\\Users\\DELL\\SiteSurgeon\\app\\..\\output\\15fe1fa6\\annotated_issue-1_sam_box.png",
+              "method": "sam_box",
+              "boxes": [
+                {
+                  "object_id": 1,
+                  "x1": 43,
+                  "y1": 22,
+                  "x2": 63,
+                  "y2": 40,
+                  "w": 1280,
+                  "h": 800
+                },
+                {
+                  "object_id": 2,
+                  "x1": 236,
+                  "y1": 496,
+                  "x2": 262,
+                  "y2": 535,
+                  "w": 1280,
+                  "h": 800
+                },
+                {
+                  "object_id": 3,
+                  "x1": 44,
+                  "y1": 117,
+                  "x2": 273,
+                  "y2": 209,
+                  "w": 1280,
+                  "h": 800
+                },
+                {
+                  "object_id": null,
+                  "x1": 518,
+                  "y1": 497,
+                  "x2": 557,
+                  "y2": 535,
+                  "w": 1280,
+                  "h": 800
+                }
+              ]
+            },
+            "dom_bbox": null,
+            "dom_type": null,
+            "dom_selector": null
+          },
+          {
+            "id": "issue-2",
+            "severity": "medium",
+            "description": "Element is fully outside the visible viewport.",
+            "element_description": "off-screen element",
+            "viewport": "desktop",
+            "dom_bbox": {
+              "x": 0,
+              "y": 813,
+              "w": 1280,
+              "h": 66
+            },
+            "dom_type": "outside_viewport",
+            "dom_selector": "footer"
+          }
+        ],
+        "issues_count": 2,
+        "safety": {
+          "length": 7651,
+          "has_doctype": true,
+          "has_body": true,
+          "orig_word_count": 52,
+          "fixed_word_count": 52,
+          "retention_ratio": 1.0,
+          "missing_words": []
+        },
+        "safety_ok": true,
+        "retried": false,
+        "error": null
+      },
+      "verify": {
+        "run_id": "15fe1fa6",
+        "round_num": 1,
+        "after_screenshots": {
+          "desktop": "C:\\Users\\DELL\\SiteSurgeon\\app\\..\\output\\15fe1fa6\\after_r1_desktop.png",
+          "mobile": "C:\\Users\\DELL\\SiteSurgeon\\app\\..\\output\\15fe1fa6\\after_r1_mobile.png"
+        },
+        "after_dom_findings": [
+          {
+            "type": "outside_viewport",
+            "selector": "footer",
+            "description": "Element is fully outside the visible viewport",
+            "bbox": {
+              "x": 0,
+              "y": 813,
+              "w": 1280,
+              "h": 66
+            },
+            "extra": {
+              "measured_value": 1,
+              "target_value": 0,
+              "unit": "bool",
+              "measurement": "outside viewport (target: inside)"
+            },
+            "viewport": "desktop"
+          },
+          {
+            "type": "outside_viewport",
+            "selector": "div.product-card",
+            "description": "Element is fully outside the visible viewport",
+            "bbox": {
+              "x": 40,
+              "y": 852,
+              "w": 260,
+              "h": 308
+            },
+            "extra": {
+              "measured_value": 1,
+              "target_value": 0,
+              "unit": "bool",
+              "measurement": "outside viewport (target: inside)"
+            },
+            "viewport": "mobile"
+          },
+          {
+            "type": "outside_viewport",
+            "selector": "div.card-thumb",
+            "description": "Element is fully outside the visible viewport",
+            "bbox": {
+              "x": 41,
+              "y": 853,
+              "w": 258,
+              "h": 160
+            },
+            "extra": {
+              "measured_value": 1,
+              "target_value": 0,
+              "unit": "bool",
+              "measurement": "outside viewport (target: inside)"
+            },
+            "viewport": "mobile"
+          },
+          {
+            "type": "outside_viewport",
+            "selector": "div.card-body",
+            "description": "Element is fully outside the visible viewport",
+            "bbox": {
+              "x": 41,
+              "y": 1013,
+              "w": 258,
+              "h": 146
+            },
+            "extra": {
+              "measured_value": 1,
+              "target_value": 0,
+              "unit": "bool",
+              "measurement": "outside viewport (target: inside)"
+            },
+            "viewport": "mobile"
+          },
+          {
+            "type": "outside_viewport",
+            "selector": "h3",
+            "description": "Element is fully outside the visible viewport",
+            "bbox": {
+              "x": 57,
+              "y": 1029,
+              "w": 226,
+              "h": 21
+            },
+            "extra": {
+              "measured_value": 1,
+              "target_value": 0,
+              "unit": "bool",
+              "measurement": "outside viewport (target: inside)"
+            },
+            "viewport": "mobile"
+          },
+          {
+            "type": "outside_viewport",
+            "selector": "div.price",
+            "description": "Element is fully outside the visible viewport",
+            "bbox": {
+              "x": 57,
+              "y": 1054,
+              "w": 226,
+              "h": 23
+            },
+            "extra": {
+              "measured_value": 1,
+              "target_value": 0,
+              "unit": "bool",
+              "measurement": "outside viewport (target: inside)"
+            },
+            "viewport": "mobile"
+          },
+          {
+            "type": "outside_viewport",
+            "selector": "div.meta",
+            "description": "Element is fully outside the visible viewport",
+            "bbox": {
+              "x": 57,
+              "y": 1080,
+              "w": 226,
+              "h": 17
+            },
+            "extra": {
+              "measured_value": 1,
+              "target_value": 0,
+              "unit": "bool",
+              "measurement": "outside viewport (target: inside)"
+            },
+            "viewport": "mobile"
+          },
+          {
+            "type": "outside_viewport",
+            "selector": "a.add-btn",
+            "description": "Element is fully outside the visible viewport",
+            "bbox": {
+              "x": 57,
+              "y": 1109,
+              "w": 226,
+              "h": 34
+            },
+            "extra": {
+              "measured_value": 1,
+              "target_value": 0,
+              "unit": "bool",
+              "measurement": "outside viewport (target: inside)"
+            },
+            "viewport": "mobile"
+          },
+          {
+            "type": "outside_viewport",
+            "selector": "footer",
+            "description": "Element is fully outside the visible viewport",
+            "bbox": {
+              "x": 0,
+              "y": 1944,
+              "w": 390,
+              "h": 66
+            },
+            "extra": {
+              "measured_value": 1,
+              "target_value": 0,
+              "unit": "bool",
+              "measurement": "outside viewport (target: inside)"
+            },
+            "viewport": "mobile"
+          }
+        ],
+        "after_ignored": [],
+        "results": [
+          {
+            "id": "issue-1",
+            "description": "Orange logo text has contrast ratio 4.16:1 on white which is below WCAG AA 4.5:1 and is hard to read.",
+            "severity": "high",
+            "dom_type": null,
+            "dom_selector": null,
+            "dom_signal": "inconclusive",
+            "dom_before": null,
+            "dom_after": null,
+            "spark_signal": true,
+            "spark_evidence": "The 'Craft Studio' logo changed from bright orange to a much darker brown that is clearly readable on white in the after screenshot.",
+            "fixed": true,
+            "signals_agreed": true
+          },
+          {
+            "id": "issue-2",
+            "description": "Element is fully outside the visible viewport.",
+            "severity": "medium",
+            "dom_type": "outside_viewport",
+            "dom_selector": "footer",
+            "dom_signal": "not_fixed",
+            "dom_before": "outside viewport (target: inside)",
+            "dom_after": "outside viewport (target: inside)",
+            "spark_signal": false,
+            "spark_evidence": "Both screenshots show identical layout and cropping with no visible new element or overflow change to confirm an off-screen element was fixed.",
+            "fixed": false,
+            "signals_agreed": true
+          }
+        ],
+        "fixed_count": 1,
+        "unfixed_count": 1,
+        "unfixed_issues": [
+          {
+            "id": "issue-2",
+            "severity": "medium",
+            "description": "Element is fully outside the visible viewport.",
+            "element_description": "off-screen element",
+            "viewport": "desktop",
+            "dom_bbox": {
+              "x": 0,
+              "y": 813,
+              "w": 1280,
+              "h": 66
+            },
+            "dom_type": "outside_viewport",
+            "dom_selector": "footer",
+            "current_measurement": "outside viewport (target: inside)",
+            "original_measurement": "outside viewport (target: inside)"
+          }
+        ]
+      }
+    },
+    {
+      "round": 2,
+      "fix": {
+        "run_id": "15fe1fa6",
+        "url": "http://127.0.0.1:8000/demo-sites/demo3.html",
+        "fixed_html_path": "C:\\Users\\DELL\\SiteSurgeon\\app\\..\\output\\15fe1fa6\\fixed.html",
+        "fixed_html_url": "/output/15fe1fa6/fixed.html",
+        "issues_sent": [
+          {
+            "id": "issue-2",
+            "severity": "medium",
+            "description": "Element is fully outside the visible viewport.",
+            "element_description": "off-screen element",
+            "viewport": "desktop",
+            "dom_bbox": {
+              "x": 0,
+              "y": 813,
+              "w": 1280,
+              "h": 66
+            },
+            "dom_type": "outside_viewport",
+            "dom_selector": "footer",
+            "current_measurement": "outside viewport (target: inside)",
+            "original_measurement": "outside viewport (target: inside)"
+          }
+        ],
+        "issues_count": 1,
+        "safety": {
+          "length": 7727,
+          "has_doctype": true,
+          "has_body": true,
+          "orig_word_count": 52,
+          "fixed_word_count": 52,
+          "retention_ratio": 1.0,
+          "missing_words": []
+        },
+        "safety_ok": true,
+        "retried": false,
+        "error": null
+      },
+      "verify": {
+        "run_id": "15fe1fa6",
+        "round_num": 2,
+        "after_screenshots": {
+          "desktop": "C:\\Users\\DELL\\SiteSurgeon\\app\\..\\output\\15fe1fa6\\after_r2_desktop.png",
+          "mobile": "C:\\Users\\DELL\\SiteSurgeon\\app\\..\\output\\15fe1fa6\\after_r2_mobile.png"
+        },
+        "after_dom_findings": [
+          {
+            "type": "outside_viewport",
+            "selector": "div.product-card",
+            "description": "Element is fully outside the visible viewport",
+            "bbox": {
+              "x": 40,
+              "y": 852,
+              "w": 260,
+              "h": 308
+            },
+            "extra": {
+              "measured_value": 1,
+              "target_value": 0,
+              "unit": "bool",
+              "measurement": "outside viewport (target: inside)"
+            },
+            "viewport": "mobile"
+          },
+          {
+            "type": "outside_viewport",
+            "selector": "div.card-thumb",
+            "description": "Element is fully outside the visible viewport",
+            "bbox": {
+              "x": 41,
+              "y": 853,
+              "w": 258,
+              "h": 160
+            },
+            "extra": {
+              "measured_value": 1,
+              "target_value": 0,
+              "unit": "bool",
+              "measurement": "outside viewport (target: inside)"
+            },
+            "viewport": "mobile"
+          },
+          {
+            "type": "outside_viewport",
+            "selector": "div.card-body",
+            "description": "Element is fully outside the visible viewport",
+            "bbox": {
+              "x": 41,
+              "y": 1013,
+              "w": 258,
+              "h": 146
+            },
+            "extra": {
+              "measured_value": 1,
+              "target_value": 0,
+              "unit": "bool",
+              "measurement": "outside viewport (target: inside)"
+            },
+            "viewport": "mobile"
+          },
+          {
+            "type": "outside_viewport",
+            "selector": "h3",
+            "description": "Element is fully outside the visible viewport",
+            "bbox": {
+              "x": 57,
+              "y": 1029,
+              "w": 226,
+              "h": 21
+            },
+            "extra": {
+              "measured_value": 1,
+              "target_value": 0,
+              "unit": "bool",
+              "measurement": "outside viewport (target: inside)"
+            },
+            "viewport": "mobile"
+          },
+          {
+            "type": "outside_viewport",
+            "selector": "div.price",
+            "description": "Element is fully outside the visible viewport",
+            "bbox": {
+              "x": 57,
+              "y": 1054,
+              "w": 226,
+              "h": 23
+            },
+            "extra": {
+              "measured_value": 1,
+              "target_value": 0,
+              "unit": "bool",
+              "measurement": "outside viewport (target: inside)"
+            },
+            "viewport": "mobile"
+          },
+          {
+            "type": "outside_viewport",
+            "selector": "div.meta",
+            "description": "Element is fully outside the visible viewport",
+            "bbox": {
+              "x": 57,
+              "y": 1080,
+              "w": 226,
+              "h": 17
+            },
+            "extra": {
+              "measured_value": 1,
+              "target_value": 0,
+              "unit": "bool",
+              "measurement": "outside viewport (target: inside)"
+            },
+            "viewport": "mobile"
+          },
+          {
+            "type": "outside_viewport",
+            "selector": "a.add-btn",
+            "description": "Element is fully outside the visible viewport",
+            "bbox": {
+              "x": 57,
+              "y": 1109,
+              "w": 226,
+              "h": 34
+            },
+            "extra": {
+              "measured_value": 1,
+              "target_value": 0,
+              "unit": "bool",
+              "measurement": "outside viewport (target: inside)"
+            },
+            "viewport": "mobile"
+          }
+        ],
+        "after_ignored": [],
+        "results": [
+          {
+            "id": "issue-2",
+            "description": "Element is fully outside the visible viewport.",
+            "severity": "medium",
+            "dom_type": "outside_viewport",
+            "dom_selector": "footer",
+            "dom_signal": "fixed",
+            "dom_before": "outside viewport (target: inside)",
+            "dom_after": null,
+            "spark_signal": true,
+            "spark_evidence": "The footer copyright bar that was not visible in the before screenshot is now fully visible at the bottom of the viewport in the after screenshot.",
+            "fixed": true,
+            "signals_agreed": true
+          }
+        ],
+        "fixed_count": 1,
+        "unfixed_count": 0,
+        "unfixed_issues": []
+      }
+    }
+  ],
+  "error": null
+}

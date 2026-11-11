@@ -1,0 +1,29 @@
+{
+  "results": [
+    {
+      "id": "issue-1",
+      "fixed": true,
+      "evidence": "The after screenshot shows a dark text-shadow on the heading which clearly separates it from the background image."
+    },
+    {
+      "id": "issue-2",
+      "fixed": true,
+      "evidence": "Body text is now dark (#333) on a white background — contrast ratio is well above 4.5:1."
+    },
+    {
+      "id": "issue-3",
+      "fixed": true,
+      "evidence": "The button is fully visible and contained within the mobile viewport in the after screenshot."
+    },
+    {
+      "id": "issue-4",
+      "fixed": true,
+      "evidence": "Cards stack in a single column on the mobile viewport in the after screenshot."
+    },
+    {
+      "id": "issue-5",
+      "fixed": false,
+      "evidence": "The heading still appears very large (around 80 px) in the after screenshot — reduced but not yet to a reasonable size."
+    }
+  ]
+}

@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Northwind Coffee</title>
+  <style>
+    /* ── Reset ───────────────────────────────────────────────── */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { overflow-x: hidden; max-width: 100%; }
+    body { font-family: 'Segoe UI', Arial, sans-serif; background: #fff; color: #1a1a1a; overflow-x: hidden; max-width: 100%; }
+
+    /* ── Nav ─────────────────────────────────────────────────── */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 2rem;
+      height: 60px;
+      background: #1a0a00;
+      color: #fff;
+      max-width: 100%;
+      box-sizing: border-box;
+      flex-wrap: wrap;
+    }
+    .logo { font-size: 1.4rem; font-weight: 700; letter-spacing: .04em; }
+    .nav-links { display: flex; gap: 1.5rem; list-style: none; flex-wrap: wrap; max-width: 100%; box-sizing: border-box; }
+    .nav-links a { color: #e0c89a; text-decoration: none; font-size: .9rem; }
+    .nav-links li { max-width: 100%; box-sizing: border-box; }
+
+    /* ── Hero ─────────────────────────────────────────────────── */
+    .hero {
+      position: relative;
+      min-height: 480px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 3rem 2rem;
+      background: linear-gradient(135deg,
+        #1a0a00 0%, #2b1405 35%,
+        #3b1a08 55%,
+        #2b1405 75%, #1a0a00 100%);
+      overflow: hidden;
+      max-width: 100%;
+      box-sizing: border-box;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(circle 120px at 70% 40%, rgba(80,40,10,.15) 0%, transparent 100%),
+        radial-gradient(circle 60px at 75% 35%, rgba(255,255,255,.08) 0%, transparent 100%);
+    }
+    .hero-content {
+      position: relative;
+      max-width: 560px;
+      width: 100%;
+      box-sizing: border-box;
+      background: rgba(0,0,0,.65);
+      padding: 2rem;
+      border-radius: 12px;
+    }
+    .hero-content h1 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: #ffffff;
+      text-shadow: 0 2px 8px rgba(0,0,0,.8);
+      line-height: 1.1;
+      margin-bottom: 1rem;
+      max-width: 100%;
+      overflow-wrap: break-word;
+    }
+    .hero-content p {
+      font-size: 1.1rem;
+      color: #ffffff;
+      text-shadow: 0 1px 6px rgba(0,0,0,.8);
+      margin-bottom: 1.5rem;
+      max-width: 100%;
+      box-sizing: border-box;
+      overflow-wrap: break-word;
+    }
+    .hero-cta-row {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      width: 100%;
+      max-width: 420px;
+      box-sizing: border-box;
+    }
+    .btn-primary {
+      flex: 1 1 160px;
+      min-width: 0;
+      max-width: 100%;
+      box-sizing: border-box;
+      padding: .9rem 1.5rem;
+      background: #c0392b;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      white-space: normal;
+    }
+    .btn-secondary {
+      flex: 1 1 160px;
+      min-width: 0;
+      max-width: 100%;
+      box-sizing: border-box;
+      padding: .9rem 1.5rem;
+      background: #ffffff;
+      color: #111111;
+      border: 2px solid #ffffff;
+      border-radius: 6px;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      white-space: normal;
+    }
+    .hero a { max-width: 100%; box-sizing: border-box; }
+
+    /* ── Info bar ────────────────────────────────────────────── */
+    .info-bar {
+      display: flex;
+      gap: 0;
+      background: #1a0a00;
+      color: #e0c89a;
+      flex-wrap: wrap;
+      max-width: 100%;
+      box-sizing: border-box;
+    }
+    .info-item {
+      flex: 1 1 180px;
+      min-width: 0;
+      max-width: 100%;
+      box-sizing: border-box;
+      padding: 1rem 1.5rem;
+      text-align: center;
+      font-size: .88rem;
+      border-right: 1px solid rgba(255,255,255,.1);
+    }
+    .info-item:last-child { border-right: none; }
+    .info-item strong { display: block; font-size: 1rem; color: #fff; margin-bottom: .25rem; }
+
+    /* ── Specials heading ──────────────────────────────────────── */
+    .specials-section {
+      padding: 2rem 2rem 0;
+      overflow: hidden;
+      max-width: 100%;
+      box-sizing: border-box;
+    }
+    .specials-heading {
+      font-size: 2.5rem;
+      font-weight: 900;
+      letter-spacing: -.02em;
+      color: #1a0a00;
+      line-height: 1.1;
+      margin-bottom: 2rem;
+      white-space: normal;
+      max-width: 100%;
+      overflow-wrap: break-word;
+      box-sizing: border-box;
+    }
+
+    /* ── Menu grid ─────────────────────────────────────────────── */
+    .menu-grid {
+      display: flex;
+      gap: 1.5rem;
+      padding: 0 2rem 2rem;
+      flex-wrap: wrap;
+      max-width: 100%;
+      box-sizing: border-box;
+    }
+    .menu-card {
+      flex: 1 1 240px;
+      min-width: 0;
+      max-width: 100%;
+      box-sizing: border-box;
+      background: #faf6f0;
+      border: 1px solid #e8d5b0;
+      border-radius: 12px;
+      overflow: hidden;
+      flex-shrink: 1;
+    }
+    /* Color swatch stands in for a product photo */
+    .card-img {
+      height: 160px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      max-width: 100%;
+      box-sizing: border-box;
+    }
+    .card-body { padding: 1rem; max-width: 100%; box-sizing: border-box; }
+    .card-body h3 { font-size: 1rem; font-weight: 700; color: #1a0a00; margin-bottom: .3rem; }
+    .card-body p  { font-size: .85rem; color: #444444; margin-bottom: .75rem; max-width: 100%; box-sizing: border-box; overflow-wrap: break-word; }
+    .card-price {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: #96281b;
+      margin-bottom: .6rem;
+    }
+    .add-btn {
+      display: block;
+      width: 100%;
+      max-width: 100%;
+      box-sizing: border-box;
+      padding: .6rem;
+      background: #1a0a00;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      font-size: .9rem;
+      cursor: pointer;
+      text-align: center;
+    }
+
+    /* ── Story section ──────────────────────────────────────────── */
+    .story {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      padding: 3rem 2rem;
+      background: #fdf9f4;
+      align-items: center;
+      max-width: 100%;
+      box-sizing: border-box;
+    }
+    .story-text h2 { font-size: 1.8rem; font-weight: 700; color: #1a0a00; margin-bottom: 1rem; }
+    .story-text p  { color: #333333; line-height: 1.7; margin-bottom: .75rem; }
+    .story-img {
+      height: 300px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #7d4a1e 0%, #c0802a 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 5rem;
+      max-width: 100%;
+      box-sizing: border-box;
+    }
+
+    /* ── Testimonial ─────────────────────────────────────────────── */
+    .testimonial {
+      padding: 3rem 2rem;
+      text-align: center;
+      background: #1a0a00;
+      max-width: 100%;
+      box-sizing: border-box;
+    }
+    .testimonial blockquote {
+      font-size: 1.4rem;
+      font-style: italic;
+      color: #e0c89a;
+      max-width: 700px;
+      margin: 0 auto 1rem;
+      line-height: 1.6;
+      box-sizing: border-box;
+    }
+    .testimonial cite { color: #d9b98a; font-size: .9rem; }
+
+    /* ── Footer ───────────────────────────────────────────────────── */
+    footer {
+      background: #f5f5f5;
+      padding: 2.5rem 2rem;
+      max-width: 100%;
+      box-sizing: border-box;
+    }
+    .footer-inner {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      max-width: 1100px;
+      margin: 0 auto;
+      box-sizing: border-box;
+    }
+    .footer-col h4 { font-size: .9rem; font-weight: 700; color: #222222; margin-bottom: .75rem; }
+    .footer-col p, .footer-col a {
+      font-size: .85rem;
+      color: #333333;
+      line-height: 1.7;
+      text-decoration: none;
+      display: block;
+      overflow-wrap: break-word;
+    }
+    .footer-bottom {
+      text-align: center;
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid #e0e0e0;
+      font-size: .8rem;
+      color: #333333;
+    }
+
+    a { max-width: 100%; box-sizing: border-box; }
+    p { max-width: 100%; box-sizing: border-box; overflow-wrap: break-word; }
+    li { max-width: 100%; box-sizing: border-box; }
+    div.menu-card { max-width: 100%; box-sizing: border-box; }
+
+    @media (max-width: 768px) {
+      nav { padding: 0.75rem 1rem; height: auto; gap: 0.5rem; }
+      .hero { padding: 2rem 1rem; }
+      .hero-content { padding: 1.5rem; }
+      .hero-content h1 { font-size: 2rem; }
+      .hero-cta-row { max-width: 100%; }
+      .info-item { flex: 1 1 45%; border-right: none; border-bottom: 1px solid rgba(255,255,255,.1); }
+      .specials-section { padding: 1.5rem 1rem 0; }
+      .specials-heading { font-size: 2rem; }
+      .menu-grid { padding: 0 1rem 1.5rem; }
+      .menu-card { flex: 1 1 100%; }
+      .story { grid-template-columns: 1fr; gap: 1.5rem; padding: 2rem 1rem; }
+      .footer-inner { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <span class="logo">Northwind Coffee</span>
+    <ul class="nav-links">
+      <li><a href="#">Menu</a></li>
+      <li><a href="#">Our Story</a></li>
+      <li><a href="#">Locations</a></li>
+      <li><a href="#">Order</a></li>
+    </ul>
+  </nav>
+
+  <!-- BUG 1: white text on near-white gradient zone -->
+  <!-- BUG 2: rigid 420px CTA row clips on mobile    -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Wake up to something extraordinary.</h1>
+      <p>Single-origin beans, roasted to order. Pickup or delivery in under 20 minutes.</p>
+      <div class="hero-cta-row">
+        <button class="btn-primary">Order now</button>
+        <button class="btn-secondary">See the menu</button>
+      </div>
+    </div>
+  </section>
+
+  <div class="info-bar">
+    <div class="info-item"><strong>Mon–Fri</strong>6:30 AM – 8 PM</div>
+    <div class="info-item"><strong>Sat–Sun</strong>7 AM – 9 PM</div>
+    <div class="info-item"><strong>3 locations</strong>Downtown · Eastside · Airport</div>
+    <div class="info-item"><strong>Free delivery</strong>Orders over $25</div>
+  </div>
+
+  <!-- BUG 4: 120px heading forces horizontal scroll -->
+  <!-- BUG 3: flex menu grid overflows on mobile      -->
+  <div class="specials-section">
+    <h2 class="specials-heading">TODAY'S SPECIALS</h2>
+  </div>
+  <div class="menu-grid">
+    <div class="menu-card">
+      <div class="card-img" style="background:#f5e6d3;">☕</div>
+      <div class="card-body">
+        <h3>Oat Flat White</h3>
+        <p>Smooth double shot with micro-foamed oat milk.</p>
+        <div class="card-price">$6.50</div>
+        <button class="add-btn">Add to order</button>
+      </div>
+    </div>
+    <div class="menu-card">
+      <div class="card-img" style="background:#e8d5c0;">🧋</div>
+      <div class="card-body">
+        <h3>Iced Brown Sugar Latte</h3>
+        <p>Cold brew, brown sugar syrup, oat milk over ice.</p>
+        <div class="card-price">$7.25</div>
+        <button class="add-btn">Add to order</button>
+      </div>
+    </div>
+    <div class="menu-card">
+      <div class="card-img" style="background:#dde8d0;">🍵</div>
+      <div class="card-body">
+        <h3>Matcha Latte</h3>
+        <p>Ceremonial grade matcha, steamed whole milk.</p>
+        <div class="card-price">$6.75</div>
+        <button class="add-btn">Add to order</button>
+      </div>
+    </div>
+    <div class="menu-card">
+      <div class="card-img" style="background:#f0ddd0;">🥐</div>
+      <div class="card-body">
+        <h3>Almond Croissant</h3>
+        <p>Freshly baked, filled with almond cream.</p>
+        <div class="card-price">$4.50</div>
+        <button class="add-btn">Add to order</button>
+      </div>
+    </div>
+    <div class="menu-card">
+      <div class="card-img" style="background:#f5e8d8;">🍫</div>
+      <div class="card-body">
+        <h3>Mocha Affogato</h3>
+        <p>Espresso poured over house-made chocolate gelato.</p>
+        <div class="card-price">$8.00</div>
+        <button class="add-btn">Add to order</button>
+      </div>
+    </div>
+  </div>
+
+  <section class="story">
+    <div class="story-text">
+      <h2>Roasted with intention.</h2>
+      <p>We source directly from small farms across Ethiopia, Colombia, and Guatemala — then roast in small batches at our Eastside facility every Tuesday and Friday.</p>
+      <p>Every cup tells the story of where it came from. We think you can taste the difference.</p>
+    </div>
+    <div class="story-img">☕</div>
+  </section>
+
+  <section class="testimonial">
+    <blockquote>"The best flat white I've had outside of Melbourne. Northwind gets the ratio exactly right."</blockquote>
+    <cite>— Sarah K., loyal customer since 2019</cite>
+  </section>
+
+  <!-- BUG 5: #bbb text on #f5f5f5 → contrast 1.7:1 -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-col">
+        <h4>Northwind Coffee</h4>
+        <p>Specialty coffee roasted with care, served with intention. Three locations across the city.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Visit us</h4>
+        <a href="#">Downtown — 14 Market St</a>
+        <a href="#">Eastside — 88 Canal Ave</a>
+        <a href="#">Airport — Terminal B</a>
+      </div>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <a href="#">Instagram</a>
+        <a href="#">Twitter / X</a>
+        <a href="#">Newsletter</a>
+        <a href="#">Wholesale enquiries</a>
+      </div>
+    </div>
+    <p class="footer-bottom">© 2026 Northwind Coffee Co. All rights reserved. Beans sourced responsibly.</p>
+  </footer>
+
+</body>
+</html>

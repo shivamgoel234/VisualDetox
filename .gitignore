@@ -1,0 +1,24 @@
+# ── Secrets ──────────────────────────────────────────────────────────────────
+.env
+
+# ── Python ───────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+*.egg-info/
+dist/
+build/
+
+# ── App runtime artifacts ────────────────────────────────────────────────────
+# Disk cache for model responses (keyed by input hash)
+cache/
+# Run output: screenshots, fixed HTML, reports
+output/
+
+# ── OS / editor ──────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LaunchPad SaaS — Demo 2</title>
+  <style>
+    /* ── Reset & base ──────────────────────────────────────────────────────── */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { max-width: 100%; overflow-x: hidden; box-sizing: border-box; }
+    body { font-family: 'Segoe UI', Arial, sans-serif; background: #f9fafb; color: #111; max-width: 100%; overflow-x: hidden; box-sizing: border-box; padding-bottom: 70px; }
+
+    /* ── Nav ───────────────────────────────────────────────────────────────── */
+    nav {
+      background: #fff;
+      border-bottom: 1px solid #e5e7eb;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2rem;
+      height: 60px;
+      max-width: 100%;
+      box-sizing: border-box;
+    }
+    nav .logo { font-weight: 800; font-size: 1.3rem; color: #4f46e5; }
+    nav .nav-links { display: flex; gap: 1.5rem; }
+    nav .nav-links a { color: #374151; text-decoration: none; font-size: .9rem; }
+
+    /* ── Hero ──────────────────────────────────────────────────────────────── */
+    .hero {
+      background-color: #1e1b4b;
+      background: linear-gradient(160deg, #1e1b4b 0%, #312e81 100%);
+      background-color: #1e1b4b;
+      color: #fff;
+      padding: 5rem 2rem 4rem;
+      text-align: center;
+      max-width: 100%;
+      box-sizing: border-box;
+    }
+    .hero h1 { font-size: 2.6rem; line-height: 1.2; max-width: 700px; margin: 0 auto; color: #ffffff; background-color: #1e1b4b; box-sizing: border-box; }
+    .hero p  { margin-top: 1rem; font-size: 1.1rem; opacity: .88; max-width: 520px; margin: 1rem auto 0; color: #ffffff; }
+
+    /* ── CTA row ─────────────────────────────────────────────────────────────
+       BUG 1 ─ The button row uses a fixed pixel width that exceeds the
+                viewport on mobile.  On screens ≤ 480 px the right button
+                is clipped and unreachable.                                   */
+    .cta-row {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      margin-top: 2rem;
+      width: 100%;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      flex-wrap: wrap;
+      box-sizing: border-box;
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+    .btn-primary {
+      padding: .8rem 2rem;
+      background: #fff;
+      color: #4f46e5;
+      font-weight: 700;
+      border-radius: 6px;
+      text-decoration: none;
+      white-space: nowrap;
+      flex-shrink: 1;
+      flex-grow: 0;
+      min-width: 0;
+      max-width: 100%;
+      box-sizing: border-box;
+    }
+    .btn-secondary {
+      padding: .8rem 2rem;
+      background: transparent;
+      color: #fff;
+      border: 2px solid rgba(255,255,255,.7);
+      border-radius: 6px;
+      text-decoration: none;
+      white-space: nowrap;
+      flex-shrink: 1;
+      min-width: 0;
+      max-width: 100%;
+      box-sizing: border-box;
+    }
+
+    /* ── Pricing ─────────────────────────────────────────────────────────────
+       BUG 2 ─ The three pricing cards are in a rigid 900 px row.
+                On a 390 px mobile viewport they overflow horizontally
+                instead of stacking.                                          */
+    .pricing {
+      padding: 3rem 2rem;
+      text-align: center;
+      max-width: 100%;
+      box-sizing: border-box;
+    }
+    .pricing h2 { font-size: 1.8rem; margin-bottom: 2rem; color: #111; }
+
+    .plans {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      width: 100%;
+      max-width: 900px;
+      margin: 0 auto;
+      flex-wrap: wrap;
+      box-sizing: border-box;
+    }
+    .plan {
+      background: #fff;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 2rem 1.5rem;
+      flex: 1 1 260px;
+      min-width: 0;
+      max-width: 100%;
+      box-sizing: border-box;
+      box-shadow: 0 1px 4px rgba(0,0,0,.06);
+    }
+    .plan.featured {
+      border-color: #4f46e5;
+      box-shadow: 0 0 0 3px rgba(79,70,229,.15);
+    }
+    .plan h3  { font-size: 1.1rem; color: #374151; }
+    .plan .price { font-size: 2.4rem; font-weight: 800; color: #111; margin: .5rem 0; }
+    .plan .price span { font-size: 1rem; font-weight: 400; color: #6b7280; }
+    .plan ul  { list-style: none; text-align: left; margin: 1rem 0; font-size: .9rem; color: #374151; }
+    .plan ul li { padding: .3rem 0; }
+    .plan ul li::before { content: '✓  '; color: #4f46e5; }
+    .plan .btn {
+      display: block;
+      padding: .7rem;
+      text-align: center;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: .9rem;
+      max-width: 100%;
+      box-sizing: border-box;
+    }
+    .plan .btn-outline { border: 2px solid #4f46e5; color: #4f46e5; }
+    .plan.featured .btn { background: #4f46e5; color: #fff; }
+
+    /* ── Footer ────────────────────────────────────────────────────────────── */
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      font-size: .8rem;
+      color: #4b5563;
+      border-top: 1px solid #e5e7eb;
+      background: #ffffff;
+      width: 100%;
+      max-width: 100%;
+      box-sizing: border-box;
+      position: fixed;
+      left: 0;
+      right: 0;
+      top: auto;
+      bottom: 0;
+      transform: none;
+      margin: 0 auto;
+      overflow-wrap: break-word;
+      display: block;
+      visibility: visible;
+      opacity: 1;
+      z-index: 10;
+    }
+
+    @media (max-width: 600px) {
+      nav { padding: 0 1rem; flex-wrap: wrap; height: auto; min-height: 60px; padding-top: .75rem; padding-bottom: .75rem; }
+      .hero { padding: 3rem 1rem 2.5rem; }
+      .hero h1 { font-size: 2rem; max-width: 100%; }
+      .cta-row { flex-direction: column; align-items: center; width: 100%; max-width: 100%; }
+      .plans { flex-direction: column; align-items: stretch; max-width: 100%; }
+      .plan { flex: 1 1 auto; width: 100%; }
+      footer { padding: 1.5rem 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <span class="logo">⚡ LaunchPad</span>
+    <div class="nav-links">
+      <a href="#">Features</a>
+      <a href="#">Pricing</a>
+      <a href="#">Docs</a>
+      <a href="#">Sign in</a>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <h1>Ship faster with LaunchPad</h1>
+    <p>The all-in-one platform for indie developers and small teams who want to move fast.</p>
+
+    <!-- BUG 1: rigid 600px container clips right button on mobile -->
+    <div class="cta-row">
+      <a class="btn-primary" href="#">Start for free</a>
+      <a class="btn-secondary" href="#">Watch demo →</a>
+    </div>
+  </section>
+
+  <!-- BUG 2: rigid 900px .plans row overflows on mobile -->
+  <section class="pricing">
+    <h2>Simple, transparent pricing</h2>
+    <div class="plans">
+      <div class="plan">
+        <h3>Starter</h3>
+        <div class="price">$0<span>/mo</span></div>
+        <ul>
+          <li>1 project</li>
+          <li>5 GB storage</li>
+          <li>Community support</li>
+        </ul>
+        <a class="btn btn-outline" href="#">Get started</a>
+      </div>
+      <div class="plan featured">
+        <h3>Pro</h3>
+        <div class="price">$29<span>/mo</span></div>
+        <ul>
+          <li>Unlimited projects</li>
+          <li>50 GB storage</li>
+          <li>Priority support</li>
+          <li>Custom domains</li>
+        </ul>
+        <a class="btn" href="#">Start free trial</a>
+      </div>
+      <div class="plan">
+        <h3>Team</h3>
+        <div class="price">$79<span>/mo</span></div>
+        <ul>
+          <li>Everything in Pro</li>
+          <li>500 GB storage</li>
+          <li>SSO &amp; SAML</li>
+          <li>Audit logs</li>
+        </ul>
+        <a class="btn btn-outline" href="#">Contact sales</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>© 2026 LaunchPad Inc. All rights reserved.</footer>
+
+</body>
+</html>

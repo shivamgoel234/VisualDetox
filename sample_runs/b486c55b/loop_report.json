@@ -1,0 +1,762 @@
+{
+  "run_id": "b486c55b",
+  "url": "http://127.0.0.1:8000/demo-sites/demo1.html",
+  "mock_mode": false,
+  "total_issues": 4,
+  "total_fixed": 4,
+  "total_ignored": 0,
+  "ignored": [],
+  "raw_findings_count": 16,
+  "rounds_used": 2,
+  "stop_reason": "all_fixed",
+  "fixed_html_url": "/output/b486c55b/fixed.html",
+  "before_screenshots": {
+    "desktop": "/output/b486c55b/before_desktop.png",
+    "mobile": "/output/b486c55b/before_mobile.png"
+  },
+  "final_after_screenshots": {
+    "desktop": "/output/b486c55b/after_r2_desktop.png",
+    "mobile": "/output/b486c55b/after_r2_mobile.png"
+  },
+  "analysis_issues": [
+    {
+      "id": "issue-1",
+      "severity": "high",
+      "description": "Header navigation links have a contrast ratio of 1.23:1 against the dark background making them hard to read.",
+      "element_description": "navigation links",
+      "viewport": "desktop",
+      "annotation_url": "/output/b486c55b/annotated_issue-1_dom_box.png",
+      "annotation_method": "dom_box"
+    },
+    {
+      "id": "issue-2",
+      "severity": "high",
+      "description": "Hero heading has a contrast ratio of 1.09:1 which is far below WCAG AA and is hard to read.",
+      "element_description": "hero heading",
+      "viewport": "desktop",
+      "annotation_url": "/output/b486c55b/annotated_issue-2_dom_box.png",
+      "annotation_method": "dom_box"
+    },
+    {
+      "id": "issue-3",
+      "severity": "high",
+      "description": "Hero supporting paragraph has a contrast ratio of 1.12:1 and is difficult to read.",
+      "element_description": "hero paragraph",
+      "viewport": "desktop",
+      "annotation_url": "/output/b486c55b/annotated_issue-3_dom_box.png",
+      "annotation_method": "dom_box"
+    },
+    {
+      "id": "issue-4",
+      "severity": "medium",
+      "description": "Explore Now button text has a contrast ratio of 3.83:1 which is below the WCAG AA minimum.",
+      "element_description": "red CTA button",
+      "viewport": "desktop",
+      "annotation_url": "/output/b486c55b/annotated_issue-4_sam_box.png",
+      "annotation_method": "sam_box"
+    },
+    {
+      "id": "issue-5",
+      "severity": "high",
+      "description": "Card description text under Beach Escapes, Mountain Treks and City Breaks is very light gray on white and hard to read.",
+      "element_description": "card description text",
+      "viewport": "desktop",
+      "annotation_url": "/output/b486c55b/annotated_issue-5_dom_box.png",
+      "annotation_method": "dom_box"
+    }
+  ],
+  "per_issue": [
+    {
+      "id": "issue-1",
+      "description": "Header navigation links have a contrast ratio of 1.23:1 against the dark background making them hard to read.",
+      "severity": "high",
+      "dom_type": "low_contrast",
+      "dom_selector": "li",
+      "dom_signal": "fixed",
+      "dom_before": "1.23:1 (target: \u22654.5:1)",
+      "dom_after": null,
+      "spark_signal": true,
+      "spark_evidence": "Header navigation links in the after screenshot appear bright white and clearly legible against the dark header background.",
+      "fixed": true,
+      "signals_agreed": true
+    },
+    {
+      "id": "issue-2",
+      "description": "Card description text under Beach Escapes, Mountain Treks and City Breaks is very light gray on white and hard to read.",
+      "severity": "high",
+      "dom_type": "horizontal_overflow",
+      "dom_selector": "li",
+      "dom_signal": "fixed",
+      "dom_before": "11px overflow (target: 0px)",
+      "dom_after": null,
+      "spark_signal": true,
+      "spark_evidence": "Card description text under all three cards in the after screenshot appears dark and clearly readable on the white background.",
+      "fixed": true,
+      "signals_agreed": true
+    },
+    {
+      "id": "issue-3",
+      "description": "Element extends 11px beyond the right edge of the viewport.",
+      "severity": "high",
+      "dom_type": "horizontal_overflow",
+      "dom_selector": "ul",
+      "dom_signal": "fixed",
+      "dom_before": "11px overflow (target: 0px)",
+      "dom_after": null,
+      "spark_signal": true,
+      "spark_evidence": "The header, hero heading, and cards all fit within the viewport width with no right-edge clipping in the after screenshot.",
+      "fixed": true,
+      "signals_agreed": true
+    },
+    {
+      "id": "issue-4",
+      "description": "Element is fully outside the visible viewport.",
+      "severity": "medium",
+      "dom_type": "outside_viewport",
+      "dom_selector": "footer",
+      "dom_signal": "fixed",
+      "dom_before": "outside viewport (target: inside)",
+      "dom_after": null,
+      "spark_signal": true,
+      "spark_evidence": "The after screenshot shows the full header, hero heading, subtext, Explore Now button, and vertically stacked cards fully inside the mobile viewport with no horizontal truncation.",
+      "fixed": true,
+      "signals_agreed": true
+    }
+  ],
+  "round_reports": [
+    {
+      "round": 1,
+      "fix": {
+        "run_id": "b486c55b",
+        "url": "http://127.0.0.1:8000/demo-sites/demo1.html",
+        "fixed_html_path": "C:\\Users\\DELL\\SiteSurgeon\\app\\..\\output\\b486c55b\\fixed.html",
+        "fixed_html_url": "/output/b486c55b/fixed.html",
+        "issues_sent": [
+          {
+            "id": "issue-1",
+            "severity": "high",
+            "description": "Header navigation links have a contrast ratio of 1.23:1 against the dark background making them hard to read.",
+            "element_description": "navigation links",
+            "viewport": "desktop",
+            "annotation": {
+              "path": "C:\\Users\\DELL\\SiteSurgeon\\app\\..\\output\\b486c55b\\annotated_issue-1_dom_box.png",
+              "method": "dom_box",
+              "boxes": []
+            },
+            "dom_bbox": {
+              "x": 951,
+              "y": 18,
+              "w": 79,
+              "h": 21
+            },
+            "dom_type": "low_contrast",
+            "dom_selector": "li"
+          },
+          {
+            "id": "issue-2",
+            "severity": "high",
+            "description": "Card description text under Beach Escapes, Mountain Treks and City Breaks is very light gray on white and hard to read.",
+            "element_description": "card description text",
+            "viewport": "desktop",
+            "annotation": {
+              "path": "C:\\Users\\DELL\\SiteSurgeon\\app\\..\\output\\b486c55b\\annotated_issue-5_dom_box.png",
+              "method": "dom_box",
+              "boxes": []
+            },
+            "dom_bbox": {
+              "x": 352,
+              "y": 18,
+              "w": 49,
+              "h": 21
+            },
+            "dom_type": "horizontal_overflow",
+            "dom_selector": "li"
+          },
+          {
+            "id": "issue-3",
+            "severity": "high",
+            "description": "Element extends 11px beyond the right edge of the viewport.",
+            "element_description": "overflowing element",
+            "viewport": "mobile",
+            "dom_bbox": {
+              "x": 104,
+              "y": 18,
+              "w": 297,
+              "h": 21
+            },
+            "dom_type": "horizontal_overflow",
+            "dom_selector": "ul"
+          },
+          {
+            "id": "issue-4",
+            "severity": "medium",
+            "description": "Element is fully outside the visible viewport.",
+            "element_description": "off-screen element",
+            "viewport": "mobile",
+            "dom_bbox": {
+              "x": 0,
+              "y": 1029,
+              "w": 390,
+              "h": 66
+            },
+            "dom_type": "outside_viewport",
+            "dom_selector": "footer"
+          }
+        ],
+        "issues_count": 4,
+        "safety": {
+          "length": 6635,
+          "has_doctype": true,
+          "has_body": true,
+          "orig_word_count": 66,
+          "fixed_word_count": 66,
+          "retention_ratio": 1.0,
+          "missing_words": []
+        },
+        "safety_ok": true,
+        "retried": false,
+        "error": null
+      },
+      "verify": {
+        "run_id": "b486c55b",
+        "round_num": 1,
+        "after_screenshots": {
+          "desktop": "C:\\Users\\DELL\\SiteSurgeon\\app\\..\\output\\b486c55b\\after_r1_desktop.png",
+          "mobile": "C:\\Users\\DELL\\SiteSurgeon\\app\\..\\output\\b486c55b\\after_r1_mobile.png"
+        },
+        "after_dom_findings": [
+          {
+            "type": "low_contrast",
+            "selector": "h1",
+            "description": "Text contrast ratio 1.09:1 is below WCAG AA minimum of 4.5:1",
+            "bbox": {
+              "x": 760,
+              "y": 96,
+              "w": 480,
+              "h": 103
+            },
+            "extra": {
+              "contrast_ratio": 1.09,
+              "fg_color": "#ffffff",
+              "bg_color": "#f5f5f5",
+              "measured_value": 1.09,
+              "target_value": 4.5,
+              "unit": ":1 ratio",
+              "measurement": "1.09:1 (target: \u22654.5:1)"
+            },
+            "viewport": "desktop"
+          },
+          {
+            "type": "low_contrast",
+            "selector": "p",
+            "description": "Text contrast ratio 1.12:1 is below WCAG AA minimum of 4.5:1",
+            "bbox": {
+              "x": 760,
+              "y": 211,
+              "w": 480,
+              "h": 44
+            },
+            "extra": {
+              "contrast_ratio": 1.12,
+              "fg_color": "#e8e8e8",
+              "bg_color": "#f5f5f5",
+              "measured_value": 1.12,
+              "target_value": 4.5,
+              "unit": ":1 ratio",
+              "measurement": "1.12:1 (target: \u22654.5:1)"
+            },
+            "viewport": "desktop"
+          },
+          {
+            "type": "low_contrast",
+            "selector": "a.cta",
+            "description": "Text contrast ratio 3.83:1 is below WCAG AA minimum of 4.5:1",
+            "bbox": {
+              "x": 760,
+              "y": 274,
+              "w": 143,
+              "h": 43
+            },
+            "extra": {
+              "contrast_ratio": 3.83,
+              "fg_color": "#ffffff",
+              "bg_color": "#e94560",
+              "measured_value": 3.83,
+              "target_value": 4.5,
+              "unit": ":1 ratio",
+              "measurement": "3.83:1 (target: \u22654.5:1)"
+            },
+            "viewport": "desktop"
+          },
+          {
+            "type": "outside_viewport",
+            "selector": "div.icon",
+            "description": "Element is fully outside the visible viewport",
+            "bbox": {
+              "x": 40,
+              "y": 855,
+              "w": 310,
+              "h": 43
+            },
+            "extra": {
+              "measured_value": 1,
+              "target_value": 0,
+              "unit": "bool",
+              "measurement": "outside viewport (target: inside)"
+            },
+            "viewport": "mobile"
+          },
+          {
+            "type": "outside_viewport",
+            "selector": "h3",
+            "description": "Element is fully outside the visible viewport",
+            "bbox": {
+              "x": 40,
+              "y": 910,
+              "w": 310,
+              "h": 23
+            },
+            "extra": {
+              "measured_value": 1,
+              "target_value": 0,
+              "unit": "bool",
+              "measurement": "outside viewport (target: inside)"
+            },
+            "viewport": "mobile"
+          },
+          {
+            "type": "outside_viewport",
+            "selector": "p",
+            "description": "Element is fully outside the visible viewport",
+            "bbox": {
+              "x": 40,
+              "y": 941,
+              "w": 310,
+              "h": 46
+            },
+            "extra": {
+              "measured_value": 1,
+              "target_value": 0,
+              "unit": "bool",
+              "measurement": "outside viewport (target: inside)"
+            },
+            "viewport": "mobile"
+          },
+          {
+            "type": "outside_viewport",
+            "selector": "footer",
+            "description": "Element is fully outside the visible viewport",
+            "bbox": {
+              "x": 0,
+              "y": 1051,
+              "w": 390,
+              "h": 66
+            },
+            "extra": {
+              "measured_value": 1,
+              "target_value": 0,
+              "unit": "bool",
+              "measurement": "outside viewport (target: inside)"
+            },
+            "viewport": "mobile"
+          },
+          {
+            "type": "low_contrast",
+            "selector": "h1",
+            "description": "Text contrast ratio 1.09:1 is below WCAG AA minimum of 4.5:1",
+            "bbox": {
+              "x": 16,
+              "y": 111,
+              "w": 358,
+              "h": 74
+            },
+            "extra": {
+              "contrast_ratio": 1.09,
+              "fg_color": "#ffffff",
+              "bg_color": "#f5f5f5",
+              "measured_value": 1.09,
+              "target_value": 4.5,
+              "unit": ":1 ratio",
+              "measurement": "1.09:1 (target: \u22654.5:1)"
+            },
+            "viewport": "mobile"
+          },
+          {
+            "type": "low_contrast",
+            "selector": "p",
+            "description": "Text contrast ratio 1.12:1 is below WCAG AA minimum of 4.5:1",
+            "bbox": {
+              "x": 16,
+              "y": 197,
+              "w": 358,
+              "h": 44
+            },
+            "extra": {
+              "contrast_ratio": 1.12,
+              "fg_color": "#e8e8e8",
+              "bg_color": "#f5f5f5",
+              "measured_value": 1.12,
+              "target_value": 4.5,
+              "unit": ":1 ratio",
+              "measurement": "1.12:1 (target: \u22654.5:1)"
+            },
+            "viewport": "mobile"
+          },
+          {
+            "type": "low_contrast",
+            "selector": "a.cta",
+            "description": "Text contrast ratio 3.83:1 is below WCAG AA minimum of 4.5:1",
+            "bbox": {
+              "x": 16,
+              "y": 260,
+              "w": 143,
+              "h": 43
+            },
+            "extra": {
+              "contrast_ratio": 3.83,
+              "fg_color": "#ffffff",
+              "bg_color": "#e94560",
+              "measured_value": 3.83,
+              "target_value": 4.5,
+              "unit": ":1 ratio",
+              "measurement": "3.83:1 (target: \u22654.5:1)"
+            },
+            "viewport": "mobile"
+          }
+        ],
+        "after_ignored": [],
+        "results": [
+          {
+            "id": "issue-1",
+            "description": "Header navigation links have a contrast ratio of 1.23:1 against the dark background making them hard to read.",
+            "severity": "high",
+            "dom_type": "low_contrast",
+            "dom_selector": "li",
+            "dom_signal": "fixed",
+            "dom_before": "1.23:1 (target: \u22654.5:1)",
+            "dom_after": null,
+            "spark_signal": true,
+            "spark_evidence": "Header navigation links in the after screenshot appear bright white and clearly legible against the dark header background.",
+            "fixed": true,
+            "signals_agreed": true
+          },
+          {
+            "id": "issue-2",
+            "description": "Card description text under Beach Escapes, Mountain Treks and City Breaks is very light gray on white and hard to read.",
+            "severity": "high",
+            "dom_type": "horizontal_overflow",
+            "dom_selector": "li",
+            "dom_signal": "fixed",
+            "dom_before": "11px overflow (target: 0px)",
+            "dom_after": null,
+            "spark_signal": true,
+            "spark_evidence": "Card description text under all three cards in the after screenshot appears dark and clearly readable on the white background.",
+            "fixed": true,
+            "signals_agreed": true
+          },
+          {
+            "id": "issue-3",
+            "description": "Element extends 11px beyond the right edge of the viewport.",
+            "severity": "high",
+            "dom_type": "horizontal_overflow",
+            "dom_selector": "ul",
+            "dom_signal": "fixed",
+            "dom_before": "11px overflow (target: 0px)",
+            "dom_after": null,
+            "spark_signal": true,
+            "spark_evidence": "The header, hero heading, and cards all fit within the viewport width with no right-edge clipping in the after screenshot.",
+            "fixed": true,
+            "signals_agreed": true
+          },
+          {
+            "id": "issue-4",
+            "description": "Element is fully outside the visible viewport.",
+            "severity": "medium",
+            "dom_type": "outside_viewport",
+            "dom_selector": "footer",
+            "dom_signal": "not_fixed",
+            "dom_before": "outside viewport (target: inside)",
+            "dom_after": "outside viewport (target: inside)",
+            "spark_signal": true,
+            "spark_evidence": "Content that was clipped or pushed outside the viewport before is now fully visible and stacked vertically in the after screenshot.",
+            "fixed": false,
+            "signals_agreed": false
+          }
+        ],
+        "fixed_count": 3,
+        "unfixed_count": 1,
+        "unfixed_issues": [
+          {
+            "id": "issue-4",
+            "severity": "medium",
+            "description": "Element is fully outside the visible viewport.",
+            "element_description": "off-screen element",
+            "viewport": "mobile",
+            "dom_bbox": {
+              "x": 0,
+              "y": 1029,
+              "w": 390,
+              "h": 66
+            },
+            "dom_type": "outside_viewport",
+            "dom_selector": "footer",
+            "current_measurement": "outside viewport (target: inside)",
+            "original_measurement": "outside viewport (target: inside)"
+          }
+        ]
+      }
+    },
+    {
+      "round": 2,
+      "fix": {
+        "run_id": "b486c55b",
+        "url": "http://127.0.0.1:8000/demo-sites/demo1.html",
+        "fixed_html_path": "C:\\Users\\DELL\\SiteSurgeon\\app\\..\\output\\b486c55b\\fixed.html",
+        "fixed_html_url": "/output/b486c55b/fixed.html",
+        "issues_sent": [
+          {
+            "id": "issue-4",
+            "severity": "medium",
+            "description": "Element is fully outside the visible viewport.",
+            "element_description": "off-screen element",
+            "viewport": "mobile",
+            "dom_bbox": {
+              "x": 0,
+              "y": 1029,
+              "w": 390,
+              "h": 66
+            },
+            "dom_type": "outside_viewport",
+            "dom_selector": "footer",
+            "current_measurement": "outside viewport (target: inside)",
+            "original_measurement": "outside viewport (target: inside)"
+          }
+        ],
+        "issues_count": 1,
+        "safety": {
+          "length": 7125,
+          "has_doctype": true,
+          "has_body": true,
+          "orig_word_count": 66,
+          "fixed_word_count": 66,
+          "retention_ratio": 1.0,
+          "missing_words": []
+        },
+        "safety_ok": true,
+        "retried": false,
+        "error": null
+      },
+      "verify": {
+        "run_id": "b486c55b",
+        "round_num": 2,
+        "after_screenshots": {
+          "desktop": "C:\\Users\\DELL\\SiteSurgeon\\app\\..\\output\\b486c55b\\after_r2_desktop.png",
+          "mobile": "C:\\Users\\DELL\\SiteSurgeon\\app\\..\\output\\b486c55b\\after_r2_mobile.png"
+        },
+        "after_dom_findings": [
+          {
+            "type": "low_contrast",
+            "selector": "h1",
+            "description": "Text contrast ratio 1.09:1 is below WCAG AA minimum of 4.5:1",
+            "bbox": {
+              "x": 760,
+              "y": 96,
+              "w": 480,
+              "h": 103
+            },
+            "extra": {
+              "contrast_ratio": 1.09,
+              "fg_color": "#ffffff",
+              "bg_color": "#f5f5f5",
+              "measured_value": 1.09,
+              "target_value": 4.5,
+              "unit": ":1 ratio",
+              "measurement": "1.09:1 (target: \u22654.5:1)"
+            },
+            "viewport": "desktop"
+          },
+          {
+            "type": "low_contrast",
+            "selector": "p",
+            "description": "Text contrast ratio 1.12:1 is below WCAG AA minimum of 4.5:1",
+            "bbox": {
+              "x": 760,
+              "y": 211,
+              "w": 480,
+              "h": 44
+            },
+            "extra": {
+              "contrast_ratio": 1.12,
+              "fg_color": "#e8e8e8",
+              "bg_color": "#f5f5f5",
+              "measured_value": 1.12,
+              "target_value": 4.5,
+              "unit": ":1 ratio",
+              "measurement": "1.12:1 (target: \u22654.5:1)"
+            },
+            "viewport": "desktop"
+          },
+          {
+            "type": "low_contrast",
+            "selector": "a.cta",
+            "description": "Text contrast ratio 3.83:1 is below WCAG AA minimum of 4.5:1",
+            "bbox": {
+              "x": 760,
+              "y": 274,
+              "w": 143,
+              "h": 43
+            },
+            "extra": {
+              "contrast_ratio": 3.83,
+              "fg_color": "#ffffff",
+              "bg_color": "#e94560",
+              "measured_value": 3.83,
+              "target_value": 4.5,
+              "unit": ":1 ratio",
+              "measurement": "3.83:1 (target: \u22654.5:1)"
+            },
+            "viewport": "desktop"
+          },
+          {
+            "type": "outside_viewport",
+            "selector": "div.icon",
+            "description": "Element is fully outside the visible viewport",
+            "bbox": {
+              "x": 40,
+              "y": 855,
+              "w": 310,
+              "h": 43
+            },
+            "extra": {
+              "measured_value": 1,
+              "target_value": 0,
+              "unit": "bool",
+              "measurement": "outside viewport (target: inside)"
+            },
+            "viewport": "mobile"
+          },
+          {
+            "type": "outside_viewport",
+            "selector": "h3",
+            "description": "Element is fully outside the visible viewport",
+            "bbox": {
+              "x": 40,
+              "y": 910,
+              "w": 310,
+              "h": 23
+            },
+            "extra": {
+              "measured_value": 1,
+              "target_value": 0,
+              "unit": "bool",
+              "measurement": "outside viewport (target: inside)"
+            },
+            "viewport": "mobile"
+          },
+          {
+            "type": "outside_viewport",
+            "selector": "p",
+            "description": "Element is fully outside the visible viewport",
+            "bbox": {
+              "x": 40,
+              "y": 941,
+              "w": 310,
+              "h": 46
+            },
+            "extra": {
+              "measured_value": 1,
+              "target_value": 0,
+              "unit": "bool",
+              "measurement": "outside viewport (target: inside)"
+            },
+            "viewport": "mobile"
+          },
+          {
+            "type": "low_contrast",
+            "selector": "h1",
+            "description": "Text contrast ratio 1.09:1 is below WCAG AA minimum of 4.5:1",
+            "bbox": {
+              "x": 16,
+              "y": 111,
+              "w": 358,
+              "h": 74
+            },
+            "extra": {
+              "contrast_ratio": 1.09,
+              "fg_color": "#ffffff",
+              "bg_color": "#f5f5f5",
+              "measured_value": 1.09,
+              "target_value": 4.5,
+              "unit": ":1 ratio",
+              "measurement": "1.09:1 (target: \u22654.5:1)"
+            },
+            "viewport": "mobile"
+          },
+          {
+            "type": "low_contrast",
+            "selector": "p",
+            "description": "Text contrast ratio 1.12:1 is below WCAG AA minimum of 4.5:1",
+            "bbox": {
+              "x": 16,
+              "y": 197,
+              "w": 358,
+              "h": 44
+            },
+            "extra": {
+              "contrast_ratio": 1.12,
+              "fg_color": "#e8e8e8",
+              "bg_color": "#f5f5f5",
+              "measured_value": 1.12,
+              "target_value": 4.5,
+              "unit": ":1 ratio",
+              "measurement": "1.12:1 (target: \u22654.5:1)"
+            },
+            "viewport": "mobile"
+          },
+          {
+            "type": "low_contrast",
+            "selector": "a.cta",
+            "description": "Text contrast ratio 3.83:1 is below WCAG AA minimum of 4.5:1",
+            "bbox": {
+              "x": 16,
+              "y": 260,
+              "w": 143,
+              "h": 43
+            },
+            "extra": {
+              "contrast_ratio": 3.83,
+              "fg_color": "#ffffff",
+              "bg_color": "#e94560",
+              "measured_value": 3.83,
+              "target_value": 4.5,
+              "unit": ":1 ratio",
+              "measurement": "3.83:1 (target: \u22654.5:1)"
+            },
+            "viewport": "mobile"
+          }
+        ],
+        "after_ignored": [],
+        "results": [
+          {
+            "id": "issue-4",
+            "description": "Element is fully outside the visible viewport.",
+            "severity": "medium",
+            "dom_type": "outside_viewport",
+            "dom_selector": "footer",
+            "dom_signal": "fixed",
+            "dom_before": "outside viewport (target: inside)",
+            "dom_after": null,
+            "spark_signal": true,
+            "spark_evidence": "The after screenshot shows the full header, hero heading, subtext, Explore Now button, and vertically stacked cards fully inside the mobile viewport with no horizontal truncation.",
+            "fixed": true,
+            "signals_agreed": true
+          }
+        ],
+        "fixed_count": 1,
+        "unfixed_count": 0,
+        "unfixed_issues": []
+      }
+    }
+  ],
+  "error": null
+}

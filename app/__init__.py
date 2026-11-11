@@ -1,0 +1,1 @@
+# VisualDetox app package

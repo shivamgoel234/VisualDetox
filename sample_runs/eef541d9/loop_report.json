@@ -1,0 +1,1124 @@
+{
+  "run_id": "eef541d9",
+  "url": "http://127.0.0.1:8000/demo-sites/demo2.html",
+  "mock_mode": false,
+  "total_issues": 3,
+  "total_fixed": 2,
+  "total_ignored": 0,
+  "ignored": [],
+  "raw_findings_count": 28,
+  "rounds_used": 3,
+  "stop_reason": "no_progress",
+  "fixed_html_url": "/output/eef541d9/fixed.html",
+  "before_screenshots": {
+    "desktop": "/output/eef541d9/before_desktop.png",
+    "mobile": "/output/eef541d9/before_mobile.png"
+  },
+  "final_after_screenshots": {
+    "desktop": "/output/eef541d9/after_r3_desktop.png",
+    "mobile": "/output/eef541d9/after_r3_mobile.png"
+  },
+  "analysis_issues": [],
+  "per_issue": [
+    {
+      "id": "issue-1",
+      "description": "Text contrast ratio 1.05:1 is below the WCAG AA minimum of 4.5:1.",
+      "severity": "high",
+      "dom_type": "low_contrast",
+      "dom_selector": "h1",
+      "dom_signal": "fixed",
+      "dom_before": "1.05:1 (target: \u22654.5:1)",
+      "dom_after": null,
+      "spark_signal": true,
+      "spark_evidence": "The hero headline and subtext are now white on a much darker navy background in the after screenshot, giving clearly high contrast instead of low contrast.",
+      "fixed": true,
+      "signals_agreed": true
+    },
+    {
+      "id": "issue-2",
+      "description": "Element extends 242px beyond the right edge of the viewport.",
+      "severity": "high",
+      "dom_type": "horizontal_overflow",
+      "dom_selector": "div.cta-row",
+      "dom_signal": "fixed",
+      "dom_before": "242px overflow (target: 0px)",
+      "dom_after": null,
+      "spark_signal": true,
+      "spark_evidence": "The 'Watch demo' button and pricing card that were previously truncated at the right edge are now fully visible and contained within the mobile viewport.",
+      "fixed": true,
+      "signals_agreed": true
+    },
+    {
+      "id": "issue-3",
+      "description": "Element is fully outside the visible viewport.",
+      "severity": "medium",
+      "dom_type": "outside_viewport",
+      "dom_selector": "footer",
+      "dom_signal": "fixed",
+      "dom_before": "outside viewport (target: inside)",
+      "dom_after": null,
+      "spark_signal": false,
+      "spark_evidence": "The lower pricing-card content visible in BEFORE such as Custom domains, Audit logs and Get started buttons is cut off and hidden behind the footer in AFTER, so an element remains fully outside the visible viewport.",
+      "fixed": false,
+      "signals_agreed": false
+    }
+  ],
+  "round_reports": [
+    {
+      "round": 1,
+      "fix": {
+        "run_id": "eef541d9",
+        "url": "http://127.0.0.1:8000/demo-sites/demo2.html",
+        "fixed_html_path": "C:\\Users\\DELL\\SiteSurgeon\\app\\..\\output\\eef541d9\\fixed.html",
+        "fixed_html_url": "/output/eef541d9/fixed.html",
+        "issues_sent": [
+          {
+            "id": "issue-1",
+            "severity": "high",
+            "description": "Text contrast ratio 1.05:1 is below the WCAG AA minimum of 4.5:1.",
+            "element_description": "low contrast text",
+            "viewport": "desktop",
+            "dom_bbox": {
+              "x": 290,
+              "y": 140,
+              "w": 700,
+              "h": 50
+            },
+            "dom_type": "low_contrast",
+            "dom_selector": "h1"
+          },
+          {
+            "id": "issue-2",
+            "severity": "high",
+            "description": "Element extends 242px beyond the right edge of the viewport.",
+            "element_description": "overflowing element",
+            "viewport": "mobile",
+            "dom_bbox": {
+              "x": 32,
+              "y": 357,
+              "w": 600,
+              "h": 51
+            },
+            "dom_type": "horizontal_overflow",
+            "dom_selector": "div.cta-row"
+          },
+          {
+            "id": "issue-3",
+            "severity": "medium",
+            "description": "Element is fully outside the visible viewport.",
+            "element_description": "off-screen element",
+            "viewport": "desktop",
+            "dom_bbox": {
+              "x": 0,
+              "y": 909,
+              "w": 1280,
+              "h": 66
+            },
+            "dom_type": "outside_viewport",
+            "dom_selector": "footer"
+          }
+        ],
+        "issues_count": 3,
+        "safety": {
+          "length": 7625,
+          "has_doctype": true,
+          "has_body": true,
+          "orig_word_count": 59,
+          "fixed_word_count": 59,
+          "retention_ratio": 1.0,
+          "missing_words": []
+        },
+        "safety_ok": true,
+        "retried": false,
+        "error": null
+      },
+      "verify": {
+        "run_id": "eef541d9",
+        "round_num": 1,
+        "after_screenshots": {
+          "desktop": "C:\\Users\\DELL\\SiteSurgeon\\app\\..\\output\\eef541d9\\after_r1_desktop.png",
+          "mobile": "C:\\Users\\DELL\\SiteSurgeon\\app\\..\\output\\eef541d9\\after_r1_mobile.png"
+        },
+        "after_dom_findings": [
+          {
+            "type": "outside_viewport",
+            "selector": "footer",
+            "description": "Element is fully outside the visible viewport",
+            "bbox": {
+              "x": 0,
+              "y": 909,
+              "w": 1280,
+              "h": 66
+            },
+            "extra": {
+              "measured_value": 1,
+              "target_value": 0,
+              "unit": "bool",
+              "measurement": "outside viewport (target: inside)"
+            },
+            "viewport": "desktop"
+          },
+          {
+            "type": "low_contrast",
+            "selector": "h1",
+            "description": "Text contrast ratio 1.05:1 is below WCAG AA minimum of 4.5:1",
+            "bbox": {
+              "x": 290,
+              "y": 140,
+              "w": 700,
+              "h": 50
+            },
+            "extra": {
+              "contrast_ratio": 1.05,
+              "fg_color": "#ffffff",
+              "bg_color": "#f9fafb",
+              "measured_value": 1.05,
+              "target_value": 4.5,
+              "unit": ":1 ratio",
+              "measurement": "1.05:1 (target: \u22654.5:1)"
+            },
+            "viewport": "desktop"
+          },
+          {
+            "type": "low_contrast",
+            "selector": "p",
+            "description": "Text contrast ratio 1.05:1 is below WCAG AA minimum of 4.5:1",
+            "bbox": {
+              "x": 380,
+              "y": 206,
+              "w": 520,
+              "h": 46
+            },
+            "extra": {
+              "contrast_ratio": 1.05,
+              "fg_color": "#ffffff",
+              "bg_color": "#f9fafb",
+              "measured_value": 1.05,
+              "target_value": 4.5,
+              "unit": ":1 ratio",
+              "measurement": "1.05:1 (target: \u22654.5:1)"
+            },
+            "viewport": "desktop"
+          },
+          {
+            "type": "low_contrast",
+            "selector": "a.btn-secondary",
+            "description": "Text contrast ratio 1.05:1 is below WCAG AA minimum of 4.5:1",
+            "bbox": {
+              "x": 641,
+              "y": 284,
+              "w": 176,
+              "h": 51
+            },
+            "extra": {
+              "contrast_ratio": 1.05,
+              "fg_color": "#ffffff",
+              "bg_color": "#f9fafb",
+              "measured_value": 1.05,
+              "target_value": 4.5,
+              "unit": ":1 ratio",
+              "measurement": "1.05:1 (target: \u22654.5:1)"
+            },
+            "viewport": "desktop"
+          },
+          {
+            "type": "outside_viewport",
+            "selector": "div.plan.featured",
+            "description": "Element is fully outside the visible viewport",
+            "bbox": {
+              "x": 32,
+              "y": 939,
+              "w": 326,
+              "h": 341
+            },
+            "extra": {
+              "measured_value": 1,
+              "target_value": 0,
+              "unit": "bool",
+              "measurement": "outside viewport (target: inside)"
+            },
+            "viewport": "mobile"
+          },
+          {
+            "type": "outside_viewport",
+            "selector": "h3",
+            "description": "Element is fully outside the visible viewport",
+            "bbox": {
+              "x": 57,
+              "y": 972,
+              "w": 276,
+              "h": 23
+            },
+            "extra": {
+              "measured_value": 1,
+              "target_value": 0,
+              "unit": "bool",
+              "measurement": "outside viewport (target: inside)"
+            },
+            "viewport": "mobile"
+          },
+          {
+            "type": "outside_viewport",
+            "selector": "div.price",
+            "description": "Element is fully outside the visible viewport",
+            "bbox": {
+              "x": 57,
+              "y": 1003,
+              "w": 276,
+              "h": 51
+            },
+            "extra": {
+              "measured_value": 1,
+              "target_value": 0,
+              "unit": "bool",
+              "measurement": "outside viewport (target: inside)"
+            },
+            "viewport": "mobile"
+          },
+          {
+            "type": "outside_viewport",
+            "selector": "span",
+            "description": "Element is fully outside the visible viewport",
+            "bbox": {
+              "x": 215,
+              "y": 1027,
+              "w": 29,
+              "h": 21
+            },
+            "extra": {
+              "measured_value": 1,
+              "target_value": 0,
+              "unit": "bool",
+              "measurement": "outside viewport (target: inside)"
+            },
+            "viewport": "mobile"
+          },
+          {
+            "type": "outside_viewport",
+            "selector": "ul",
+            "description": "Element is fully outside the visible viewport",
+            "bbox": {
+              "x": 57,
+              "y": 1070,
+              "w": 276,
+              "h": 118
+            },
+            "extra": {
+              "measured_value": 1,
+              "target_value": 0,
+              "unit": "bool",
+              "measurement": "outside viewport (target: inside)"
+            },
+            "viewport": "mobile"
+          },
+          {
+            "type": "outside_viewport",
+            "selector": "li",
+            "description": "Element is fully outside the visible viewport",
+            "bbox": {
+              "x": 57,
+              "y": 1070,
+              "w": 276,
+              "h": 30
+            },
+            "extra": {
+              "measured_value": 1,
+              "target_value": 0,
+              "unit": "bool",
+              "measurement": "outside viewport (target: inside)"
+            },
+            "viewport": "mobile"
+          },
+          {
+            "type": "outside_viewport",
+            "selector": "a.btn",
+            "description": "Element is fully outside the visible viewport",
+            "bbox": {
+              "x": 57,
+              "y": 1205,
+              "w": 276,
+              "h": 42
+            },
+            "extra": {
+              "measured_value": 1,
+              "target_value": 0,
+              "unit": "bool",
+              "measurement": "outside viewport (target: inside)"
+            },
+            "viewport": "mobile"
+          },
+          {
+            "type": "outside_viewport",
+            "selector": "div.plan",
+            "description": "Element is fully outside the visible viewport",
+            "bbox": {
+              "x": 32,
+              "y": 1304,
+              "w": 326,
+              "h": 345
+            },
+            "extra": {
+              "measured_value": 1,
+              "target_value": 0,
+              "unit": "bool",
+              "measurement": "outside viewport (target: inside)"
+            },
+            "viewport": "mobile"
+          },
+          {
+            "type": "outside_viewport",
+            "selector": "a.btn.btn-outline",
+            "description": "Element is fully outside the visible viewport",
+            "bbox": {
+              "x": 57,
+              "y": 1569,
+              "w": 276,
+              "h": 46
+            },
+            "extra": {
+              "measured_value": 1,
+              "target_value": 0,
+              "unit": "bool",
+              "measurement": "outside viewport (target: inside)"
+            },
+            "viewport": "mobile"
+          },
+          {
+            "type": "outside_viewport",
+            "selector": "footer",
+            "description": "Element is fully outside the visible viewport",
+            "bbox": {
+              "x": 0,
+              "y": 1697,
+              "w": 390,
+              "h": 66
+            },
+            "extra": {
+              "measured_value": 1,
+              "target_value": 0,
+              "unit": "bool",
+              "measurement": "outside viewport (target: inside)"
+            },
+            "viewport": "mobile"
+          },
+          {
+            "type": "low_contrast",
+            "selector": "h1",
+            "description": "Text contrast ratio 1.05:1 is below WCAG AA minimum of 4.5:1",
+            "bbox": {
+              "x": 16,
+              "y": 120,
+              "w": 358,
+              "h": 77
+            },
+            "extra": {
+              "contrast_ratio": 1.05,
+              "fg_color": "#ffffff",
+              "bg_color": "#f9fafb",
+              "measured_value": 1.05,
+              "target_value": 4.5,
+              "unit": ":1 ratio",
+              "measurement": "1.05:1 (target: \u22654.5:1)"
+            },
+            "viewport": "mobile"
+          },
+          {
+            "type": "low_contrast",
+            "selector": "p",
+            "description": "Text contrast ratio 1.05:1 is below WCAG AA minimum of 4.5:1",
+            "bbox": {
+              "x": 16,
+              "y": 213,
+              "w": 358,
+              "h": 46
+            },
+            "extra": {
+              "contrast_ratio": 1.05,
+              "fg_color": "#ffffff",
+              "bg_color": "#f9fafb",
+              "measured_value": 1.05,
+              "target_value": 4.5,
+              "unit": ":1 ratio",
+              "measurement": "1.05:1 (target: \u22654.5:1)"
+            },
+            "viewport": "mobile"
+          },
+          {
+            "type": "low_contrast",
+            "selector": "a.btn-secondary",
+            "description": "Text contrast ratio 1.05:1 is below WCAG AA minimum of 4.5:1",
+            "bbox": {
+              "x": 107,
+              "y": 353,
+              "w": 176,
+              "h": 51
+            },
+            "extra": {
+              "contrast_ratio": 1.05,
+              "fg_color": "#ffffff",
+              "bg_color": "#f9fafb",
+              "measured_value": 1.05,
+              "target_value": 4.5,
+              "unit": ":1 ratio",
+              "measurement": "1.05:1 (target: \u22654.5:1)"
+            },
+            "viewport": "mobile"
+          }
+        ],
+        "after_ignored": [],
+        "results": [
+          {
+            "id": "issue-1",
+            "description": "Text contrast ratio 1.05:1 is below the WCAG AA minimum of 4.5:1.",
+            "severity": "high",
+            "dom_type": "low_contrast",
+            "dom_selector": "h1",
+            "dom_signal": "not_fixed",
+            "dom_before": "1.05:1 (target: \u22654.5:1)",
+            "dom_after": "1.05:1 (target: \u22654.5:1)",
+            "spark_signal": true,
+            "spark_evidence": "The white hero headline and subtext are now displayed on a much darker navy background with strong legibility.",
+            "fixed": false,
+            "signals_agreed": false
+          },
+          {
+            "id": "issue-2",
+            "description": "Element extends 242px beyond the right edge of the viewport.",
+            "severity": "high",
+            "dom_type": "horizontal_overflow",
+            "dom_selector": "div.cta-row",
+            "dom_signal": "fixed",
+            "dom_before": "242px overflow (target: 0px)",
+            "dom_after": null,
+            "spark_signal": true,
+            "spark_evidence": "The 'Watch demo' button and pricing card that were previously truncated at the right edge are now fully visible and contained within the mobile viewport.",
+            "fixed": true,
+            "signals_agreed": true
+          },
+          {
+            "id": "issue-3",
+            "description": "Element is fully outside the visible viewport.",
+            "severity": "medium",
+            "dom_type": "outside_viewport",
+            "dom_selector": "footer",
+            "dom_signal": "not_fixed",
+            "dom_before": "outside viewport (target: inside)",
+            "dom_after": "outside viewport (target: inside)",
+            "spark_signal": false,
+            "spark_evidence": "The pricing card action buttons remain truncated at the bottom edge in the after screenshot.",
+            "fixed": false,
+            "signals_agreed": true
+          }
+        ],
+        "fixed_count": 1,
+        "unfixed_count": 2,
+        "unfixed_issues": [
+          {
+            "id": "issue-1",
+            "severity": "high",
+            "description": "Text contrast ratio 1.05:1 is below the WCAG AA minimum of 4.5:1.",
+            "element_description": "low contrast text",
+            "viewport": "desktop",
+            "dom_bbox": {
+              "x": 290,
+              "y": 140,
+              "w": 700,
+              "h": 50
+            },
+            "dom_type": "low_contrast",
+            "dom_selector": "h1",
+            "current_measurement": "1.05:1 (target: \u22654.5:1)",
+            "original_measurement": "1.05:1 (target: \u22654.5:1)"
+          },
+          {
+            "id": "issue-3",
+            "severity": "medium",
+            "description": "Element is fully outside the visible viewport.",
+            "element_description": "off-screen element",
+            "viewport": "desktop",
+            "dom_bbox": {
+              "x": 0,
+              "y": 909,
+              "w": 1280,
+              "h": 66
+            },
+            "dom_type": "outside_viewport",
+            "dom_selector": "footer",
+            "current_measurement": "outside viewport (target: inside)",
+            "original_measurement": "outside viewport (target: inside)"
+          }
+        ]
+      }
+    },
+    {
+      "round": 2,
+      "fix": {
+        "run_id": "eef541d9",
+        "url": "http://127.0.0.1:8000/demo-sites/demo2.html",
+        "fixed_html_path": "C:\\Users\\DELL\\SiteSurgeon\\app\\..\\output\\eef541d9\\fixed.html",
+        "fixed_html_url": "/output/eef541d9/fixed.html",
+        "issues_sent": [
+          {
+            "id": "issue-1",
+            "severity": "high",
+            "description": "Text contrast ratio 1.05:1 is below the WCAG AA minimum of 4.5:1.",
+            "element_description": "low contrast text",
+            "viewport": "desktop",
+            "dom_bbox": {
+              "x": 290,
+              "y": 140,
+              "w": 700,
+              "h": 50
+            },
+            "dom_type": "low_contrast",
+            "dom_selector": "h1",
+            "current_measurement": "1.05:1 (target: \u22654.5:1)",
+            "original_measurement": "1.05:1 (target: \u22654.5:1)"
+          },
+          {
+            "id": "issue-3",
+            "severity": "medium",
+            "description": "Element is fully outside the visible viewport.",
+            "element_description": "off-screen element",
+            "viewport": "desktop",
+            "dom_bbox": {
+              "x": 0,
+              "y": 909,
+              "w": 1280,
+              "h": 66
+            },
+            "dom_type": "outside_viewport",
+            "dom_selector": "footer",
+            "current_measurement": "outside viewport (target: inside)",
+            "original_measurement": "outside viewport (target: inside)"
+          }
+        ],
+        "issues_count": 2,
+        "safety": {
+          "length": 7867,
+          "has_doctype": true,
+          "has_body": true,
+          "orig_word_count": 59,
+          "fixed_word_count": 59,
+          "retention_ratio": 1.0,
+          "missing_words": []
+        },
+        "safety_ok": true,
+        "retried": false,
+        "error": null
+      },
+      "verify": {
+        "run_id": "eef541d9",
+        "round_num": 2,
+        "after_screenshots": {
+          "desktop": "C:\\Users\\DELL\\SiteSurgeon\\app\\..\\output\\eef541d9\\after_r2_desktop.png",
+          "mobile": "C:\\Users\\DELL\\SiteSurgeon\\app\\..\\output\\eef541d9\\after_r2_mobile.png"
+        },
+        "after_dom_findings": [
+          {
+            "type": "outside_viewport",
+            "selector": "footer",
+            "description": "Element is fully outside the visible viewport",
+            "bbox": {
+              "x": 0,
+              "y": 909,
+              "w": 1280,
+              "h": 66
+            },
+            "extra": {
+              "measured_value": 1,
+              "target_value": 0,
+              "unit": "bool",
+              "measurement": "outside viewport (target: inside)"
+            },
+            "viewport": "desktop"
+          },
+          {
+            "type": "outside_viewport",
+            "selector": "div.plan.featured",
+            "description": "Element is fully outside the visible viewport",
+            "bbox": {
+              "x": 32,
+              "y": 939,
+              "w": 326,
+              "h": 341
+            },
+            "extra": {
+              "measured_value": 1,
+              "target_value": 0,
+              "unit": "bool",
+              "measurement": "outside viewport (target: inside)"
+            },
+            "viewport": "mobile"
+          },
+          {
+            "type": "outside_viewport",
+            "selector": "h3",
+            "description": "Element is fully outside the visible viewport",
+            "bbox": {
+              "x": 57,
+              "y": 972,
+              "w": 276,
+              "h": 23
+            },
+            "extra": {
+              "measured_value": 1,
+              "target_value": 0,
+              "unit": "bool",
+              "measurement": "outside viewport (target: inside)"
+            },
+            "viewport": "mobile"
+          },
+          {
+            "type": "outside_viewport",
+            "selector": "div.price",
+            "description": "Element is fully outside the visible viewport",
+            "bbox": {
+              "x": 57,
+              "y": 1003,
+              "w": 276,
+              "h": 51
+            },
+            "extra": {
+              "measured_value": 1,
+              "target_value": 0,
+              "unit": "bool",
+              "measurement": "outside viewport (target: inside)"
+            },
+            "viewport": "mobile"
+          },
+          {
+            "type": "outside_viewport",
+            "selector": "span",
+            "description": "Element is fully outside the visible viewport",
+            "bbox": {
+              "x": 215,
+              "y": 1027,
+              "w": 29,
+              "h": 21
+            },
+            "extra": {
+              "measured_value": 1,
+              "target_value": 0,
+              "unit": "bool",
+              "measurement": "outside viewport (target: inside)"
+            },
+            "viewport": "mobile"
+          },
+          {
+            "type": "outside_viewport",
+            "selector": "ul",
+            "description": "Element is fully outside the visible viewport",
+            "bbox": {
+              "x": 57,
+              "y": 1070,
+              "w": 276,
+              "h": 118
+            },
+            "extra": {
+              "measured_value": 1,
+              "target_value": 0,
+              "unit": "bool",
+              "measurement": "outside viewport (target: inside)"
+            },
+            "viewport": "mobile"
+          },
+          {
+            "type": "outside_viewport",
+            "selector": "li",
+            "description": "Element is fully outside the visible viewport",
+            "bbox": {
+              "x": 57,
+              "y": 1070,
+              "w": 276,
+              "h": 30
+            },
+            "extra": {
+              "measured_value": 1,
+              "target_value": 0,
+              "unit": "bool",
+              "measurement": "outside viewport (target: inside)"
+            },
+            "viewport": "mobile"
+          },
+          {
+            "type": "outside_viewport",
+            "selector": "a.btn",
+            "description": "Element is fully outside the visible viewport",
+            "bbox": {
+              "x": 57,
+              "y": 1205,
+              "w": 276,
+              "h": 42
+            },
+            "extra": {
+              "measured_value": 1,
+              "target_value": 0,
+              "unit": "bool",
+              "measurement": "outside viewport (target: inside)"
+            },
+            "viewport": "mobile"
+          },
+          {
+            "type": "outside_viewport",
+            "selector": "div.plan",
+            "description": "Element is fully outside the visible viewport",
+            "bbox": {
+              "x": 32,
+              "y": 1304,
+              "w": 326,
+              "h": 345
+            },
+            "extra": {
+              "measured_value": 1,
+              "target_value": 0,
+              "unit": "bool",
+              "measurement": "outside viewport (target: inside)"
+            },
+            "viewport": "mobile"
+          },
+          {
+            "type": "outside_viewport",
+            "selector": "a.btn.btn-outline",
+            "description": "Element is fully outside the visible viewport",
+            "bbox": {
+              "x": 57,
+              "y": 1569,
+              "w": 276,
+              "h": 46
+            },
+            "extra": {
+              "measured_value": 1,
+              "target_value": 0,
+              "unit": "bool",
+              "measurement": "outside viewport (target: inside)"
+            },
+            "viewport": "mobile"
+          },
+          {
+            "type": "outside_viewport",
+            "selector": "footer",
+            "description": "Element is fully outside the visible viewport",
+            "bbox": {
+              "x": 0,
+              "y": 1697,
+              "w": 390,
+              "h": 66
+            },
+            "extra": {
+              "measured_value": 1,
+              "target_value": 0,
+              "unit": "bool",
+              "measurement": "outside viewport (target: inside)"
+            },
+            "viewport": "mobile"
+          }
+        ],
+        "after_ignored": [],
+        "results": [
+          {
+            "id": "issue-1",
+            "description": "Text contrast ratio 1.05:1 is below the WCAG AA minimum of 4.5:1.",
+            "severity": "high",
+            "dom_type": "low_contrast",
+            "dom_selector": "h1",
+            "dom_signal": "fixed",
+            "dom_before": "1.05:1 (target: \u22654.5:1)",
+            "dom_after": null,
+            "spark_signal": true,
+            "spark_evidence": "The hero headline and subtext are now white on a much darker navy background in the after screenshot, giving clearly high contrast instead of low contrast.",
+            "fixed": true,
+            "signals_agreed": true
+          },
+          {
+            "id": "issue-3",
+            "description": "Element is fully outside the visible viewport.",
+            "severity": "medium",
+            "dom_type": "outside_viewport",
+            "dom_selector": "footer",
+            "dom_signal": "not_fixed",
+            "dom_before": "outside viewport (target: inside)",
+            "dom_after": "outside viewport (target: inside)",
+            "spark_signal": false,
+            "spark_evidence": "The pricing section buttons remain cut off at the bottom edge in the after screenshot exactly as in the before, showing content is still outside the visible viewport.",
+            "fixed": false,
+            "signals_agreed": true
+          }
+        ],
+        "fixed_count": 1,
+        "unfixed_count": 1,
+        "unfixed_issues": [
+          {
+            "id": "issue-3",
+            "severity": "medium",
+            "description": "Element is fully outside the visible viewport.",
+            "element_description": "off-screen element",
+            "viewport": "desktop",
+            "dom_bbox": {
+              "x": 0,
+              "y": 909,
+              "w": 1280,
+              "h": 66
+            },
+            "dom_type": "outside_viewport",
+            "dom_selector": "footer",
+            "current_measurement": "outside viewport (target: inside)",
+            "original_measurement": "outside viewport (target: inside)"
+          }
+        ]
+      }
+    },
+    {
+      "round": 3,
+      "fix": {
+        "run_id": "eef541d9",
+        "url": "http://127.0.0.1:8000/demo-sites/demo2.html",
+        "fixed_html_path": "C:\\Users\\DELL\\SiteSurgeon\\app\\..\\output\\eef541d9\\fixed.html",
+        "fixed_html_url": "/output/eef541d9/fixed.html",
+        "issues_sent": [
+          {
+            "id": "issue-3",
+            "severity": "medium",
+            "description": "Element is fully outside the visible viewport.",
+            "element_description": "off-screen element",
+            "viewport": "desktop",
+            "dom_bbox": {
+              "x": 0,
+              "y": 909,
+              "w": 1280,
+              "h": 66
+            },
+            "dom_type": "outside_viewport",
+            "dom_selector": "footer",
+            "current_measurement": "outside viewport (target: inside)",
+            "original_measurement": "outside viewport (target: inside)"
+          }
+        ],
+        "issues_count": 1,
+        "safety": {
+          "length": 7904,
+          "has_doctype": true,
+          "has_body": true,
+          "orig_word_count": 59,
+          "fixed_word_count": 59,
+          "retention_ratio": 1.0,
+          "missing_words": []
+        },
+        "safety_ok": true,
+        "retried": false,
+        "error": null
+      },
+      "verify": {
+        "run_id": "eef541d9",
+        "round_num": 3,
+        "after_screenshots": {
+          "desktop": "C:\\Users\\DELL\\SiteSurgeon\\app\\..\\output\\eef541d9\\after_r3_desktop.png",
+          "mobile": "C:\\Users\\DELL\\SiteSurgeon\\app\\..\\output\\eef541d9\\after_r3_mobile.png"
+        },
+        "after_dom_findings": [
+          {
+            "type": "outside_viewport",
+            "selector": "div.plan.featured",
+            "description": "Element is fully outside the visible viewport",
+            "bbox": {
+              "x": 32,
+              "y": 939,
+              "w": 326,
+              "h": 341
+            },
+            "extra": {
+              "measured_value": 1,
+              "target_value": 0,
+              "unit": "bool",
+              "measurement": "outside viewport (target: inside)"
+            },
+            "viewport": "mobile"
+          },
+          {
+            "type": "outside_viewport",
+            "selector": "h3",
+            "description": "Element is fully outside the visible viewport",
+            "bbox": {
+              "x": 57,
+              "y": 972,
+              "w": 276,
+              "h": 23
+            },
+            "extra": {
+              "measured_value": 1,
+              "target_value": 0,
+              "unit": "bool",
+              "measurement": "outside viewport (target: inside)"
+            },
+            "viewport": "mobile"
+          },
+          {
+            "type": "outside_viewport",
+            "selector": "div.price",
+            "description": "Element is fully outside the visible viewport",
+            "bbox": {
+              "x": 57,
+              "y": 1003,
+              "w": 276,
+              "h": 51
+            },
+            "extra": {
+              "measured_value": 1,
+              "target_value": 0,
+              "unit": "bool",
+              "measurement": "outside viewport (target: inside)"
+            },
+            "viewport": "mobile"
+          },
+          {
+            "type": "outside_viewport",
+            "selector": "span",
+            "description": "Element is fully outside the visible viewport",
+            "bbox": {
+              "x": 215,
+              "y": 1027,
+              "w": 29,
+              "h": 21
+            },
+            "extra": {
+              "measured_value": 1,
+              "target_value": 0,
+              "unit": "bool",
+              "measurement": "outside viewport (target: inside)"
+            },
+            "viewport": "mobile"
+          },
+          {
+            "type": "outside_viewport",
+            "selector": "ul",
+            "description": "Element is fully outside the visible viewport",
+            "bbox": {
+              "x": 57,
+              "y": 1070,
+              "w": 276,
+              "h": 118
+            },
+            "extra": {
+              "measured_value": 1,
+              "target_value": 0,
+              "unit": "bool",
+              "measurement": "outside viewport (target: inside)"
+            },
+            "viewport": "mobile"
+          },
+          {
+            "type": "outside_viewport",
+            "selector": "li",
+            "description": "Element is fully outside the visible viewport",
+            "bbox": {
+              "x": 57,
+              "y": 1070,
+              "w": 276,
+              "h": 30
+            },
+            "extra": {
+              "measured_value": 1,
+              "target_value": 0,
+              "unit": "bool",
+              "measurement": "outside viewport (target: inside)"
+            },
+            "viewport": "mobile"
+          },
+          {
+            "type": "outside_viewport",
+            "selector": "a.btn",
+            "description": "Element is fully outside the visible viewport",
+            "bbox": {
+              "x": 57,
+              "y": 1205,
+              "w": 276,
+              "h": 42
+            },
+            "extra": {
+              "measured_value": 1,
+              "target_value": 0,
+              "unit": "bool",
+              "measurement": "outside viewport (target: inside)"
+            },
+            "viewport": "mobile"
+          },
+          {
+            "type": "outside_viewport",
+            "selector": "div.plan",
+            "description": "Element is fully outside the visible viewport",
+            "bbox": {
+              "x": 32,
+              "y": 1304,
+              "w": 326,
+              "h": 345
+            },
+            "extra": {
+              "measured_value": 1,
+              "target_value": 0,
+              "unit": "bool",
+              "measurement": "outside viewport (target: inside)"
+            },
+            "viewport": "mobile"
+          },
+          {
+            "type": "outside_viewport",
+            "selector": "a.btn.btn-outline",
+            "description": "Element is fully outside the visible viewport",
+            "bbox": {
+              "x": 57,
+              "y": 1569,
+              "w": 276,
+              "h": 46
+            },
+            "extra": {
+              "measured_value": 1,
+              "target_value": 0,
+              "unit": "bool",
+              "measurement": "outside viewport (target: inside)"
+            },
+            "viewport": "mobile"
+          }
+        ],
+        "after_ignored": [],
+        "results": [
+          {
+            "id": "issue-3",
+            "description": "Element is fully outside the visible viewport.",
+            "severity": "medium",
+            "dom_type": "outside_viewport",
+            "dom_selector": "footer",
+            "dom_signal": "fixed",
+            "dom_before": "outside viewport (target: inside)",
+            "dom_after": null,
+            "spark_signal": false,
+            "spark_evidence": "The lower pricing-card content visible in BEFORE such as Custom domains, Audit logs and Get started buttons is cut off and hidden behind the footer in AFTER, so an element remains fully outside the visible viewport.",
+            "fixed": false,
+            "signals_agreed": false
+          }
+        ],
+        "fixed_count": 0,
+        "unfixed_count": 1,
+        "unfixed_issues": [
+          {
+            "id": "issue-3",
+            "severity": "medium",
+            "description": "Element is fully outside the visible viewport.",
+            "element_description": "off-screen element",
+            "viewport": "desktop",
+            "dom_bbox": {
+              "x": 0,
+              "y": 909,
+              "w": 1280,
+              "h": 66
+            },
+            "dom_type": "outside_viewport",
+            "dom_selector": "footer",
+            "current_measurement": "outside viewport (target: inside)",
+            "original_measurement": "outside viewport (target: inside)"
+          }
+        ]
+      }
+    }
+  ],
+  "error": null
+}

@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Horizon Travel — Demo 1</title>
+  <style>
+    /* ── Reset & base ──────────────────────────────────────────────────────── */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Segoe UI', Arial, sans-serif; background: #f5f5f5; }
+    html, body { max-width: 100%; overflow-x: hidden; box-sizing: border-box; }
+
+    /* ── Nav ───────────────────────────────────────────────────────────────── */
+    nav {
+      background: #1a1a2e;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2rem;
+      height: 56px;
+      max-width: 100%;
+      box-sizing: border-box;
+      flex-wrap: wrap;
+    }
+    nav .logo { color: #fff; font-weight: 700; font-size: 1.2rem; }
+    nav ul { list-style: none; display: flex; gap: 1.5rem; max-width: 100%; box-sizing: border-box; flex-wrap: wrap; }
+    nav ul a { color: #ffffff; text-decoration: none; font-size: .9rem; }
+    nav ul li { color: #ffffff; max-width: 100%; box-sizing: border-box; }
+
+    /* ── Hero ──────────────────────────────────────────────────────────────── */
+    .hero {
+      position: relative;
+      height: 420px;
+      /* Gradient that looks like a travel photo */
+      background: linear-gradient(135deg, #0f3460 0%, #533483 50%, #e94560 100%);
+      overflow: hidden;
+      max-width: 100%;
+      box-sizing: border-box;
+    }
+    /* Decorative pseudo-image shapes */
+    .hero::before {
+      content: '';
+      position: absolute;
+      width: 300px; height: 300px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.08);
+      top: -80px; right: -60px;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      width: 200px; height: 200px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.06);
+      bottom: -50px; left: 80px;
+    }
+
+    /* BUG 1 ─ hero text has NO background / shadow, white text on light area
+               of gradient → contrast ratio drops below 3:1 on the right half */
+    .hero-content {
+      position: absolute;
+      /* Deliberately placed where the gradient is lightest (top-right) */
+      top: 40px;
+      right: 40px;
+      width: 480px;
+      max-width: 100%;
+      box-sizing: border-box;
+      /* no text-shadow, no semi-opaque backdrop */
+    }
+    .hero-content h1 {
+      font-size: 2.8rem;
+      color: #ffffff;          /* white on near-white gradient area → bad */
+      line-height: 1.15;
+    }
+    .hero-content p {
+      margin-top: .75rem;
+      font-size: 1.05rem;
+      /* BUG 2 ─ very light grey text on the light part of the gradient
+                 contrast ratio ≈ 1.8:1 — fails WCAG AA (needs 4.5:1) */
+      color: #e8e8e8;
+    }
+    .hero-content .cta {
+      display: inline-block;
+      margin-top: 1.2rem;
+      padding: .7rem 1.6rem;
+      background: #e94560;
+      color: #fff;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    /* ── Feature cards ─────────────────────────────────────────────────────── */
+    .features {
+      display: flex;
+      gap: 1.5rem;
+      padding: 2.5rem 2rem;
+      max-width: 1100px;
+      margin: 0 auto;
+      flex-wrap: wrap;
+      box-sizing: border-box;
+      width: 100%;
+    }
+    .card {
+      flex: 1;
+      background: #fff;
+      border-radius: 10px;
+      padding: 1.5rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,.08);
+      min-width: 0;
+      max-width: 100%;
+      box-sizing: border-box;
+    }
+    .card h3 { font-size: 1.1rem; color: #1a1a2e; margin-bottom: .5rem; }
+    /* BUG 2 continued ─ body copy uses near-white-on-white colour */
+    .card p  { font-size: .9rem; color: #333333; line-height: 1.6; }
+    /*                                  ^^^^^^^ contrast ratio ≈ 1.5:1 on white */
+
+    .card .icon {
+      font-size: 2rem;
+      margin-bottom: .75rem;
+    }
+
+    /* ── Footer ────────────────────────────────────────────────────────────── */
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      font-size: .8rem;
+      color: #999;
+      border-top: 1px solid #ddd;
+      margin-top: 1rem;
+      max-width: 100%;
+      max-width: 100vw;
+      box-sizing: border-box;
+      width: 100%;
+      overflow-wrap: break-word;
+      position: relative;
+      left: 0;
+      right: 0;
+      transform: none;
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+    ul { max-width: 100%; box-sizing: border-box; }
+
+    @media (max-width: 600px) {
+      body { padding-bottom: 70px; }
+      nav {
+        height: auto;
+        min-height: 56px;
+        padding: 0.75rem 1rem;
+        gap: 0.5rem;
+        width: 100%;
+      }
+      nav ul {
+        gap: 1rem;
+        width: 100%;
+        flex-wrap: wrap;
+      }
+      .hero {
+        height: auto;
+        min-height: 320px;
+        padding: 2rem 1rem;
+      }
+      .hero-content {
+        position: relative;
+        top: auto;
+        right: auto;
+        left: auto;
+        width: 100%;
+        max-width: 100%;
+      }
+      .hero-content h1 {
+        font-size: 2rem;
+      }
+      .features {
+        flex-direction: column;
+        padding: 1.5rem 1rem;
+        width: 100%;
+      }
+      .card {
+        flex: none;
+        width: 100%;
+      }
+      footer {
+        padding: 1rem 1rem;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        max-width: 100vw;
+        box-sizing: border-box;
+        background: #f5f5f5;
+        z-index: 100;
+        margin-top: 0;
+        margin-left: 0;
+        margin-right: 0;
+        transform: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <span class="logo">✈ Horizon Travel</span>
+    <ul>
+      <li><a href="#">Destinations</a></li>
+      <li><a href="#">Packages</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero: text overlaps light part of gradient = BUG 1 (overlap / readability)
+             light text colour = BUG 2 (contrast) -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Discover Your Next Adventure</h1>
+      <p>Handpicked destinations, exclusive deals, and expert guides — all in one place.</p>
+      <a class="cta" href="#">Explore Now</a>
+    </div>
+  </section>
+
+  <!-- Cards: body text colour is #c8c8c8 on white = BUG 2 (contrast) -->
+  <section class="features">
+    <div class="card">
+      <div class="icon">🏝️</div>
+      <h3>Beach Escapes</h3>
+      <p>Sun, sand, and crystal-clear water. Browse our top-rated coastal retreats around the world.</p>
+    </div>
+    <div class="card">
+      <div class="icon">🏔️</div>
+      <h3>Mountain Treks</h3>
+      <p>From the Alps to the Andes, find guided trekking packages suited to every fitness level.</p>
+    </div>
+    <div class="card">
+      <div class="icon">🏙️</div>
+      <h3>City Breaks</h3>
+      <p>Weekend getaways in the world's most vibrant cities, with hotel and experience bundles.</p>
+    </div>
+  </section>
+
+  <footer>© 2026 Horizon Travel. All rights reserved.</footer>
+
+</body>
+</html>

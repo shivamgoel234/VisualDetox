@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="format-detection" content="telephone=no,date=no,address=no,email=no,url=no">
+  <title>VisualDetox — Visual QA for the web</title>
+  <meta name="description" content="Audit a page for layout and contrast issues. Compare before-and-after captures and inspect the HTML changes.">
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+
+<header class="site-header container">
+  <a href="/" class="wordmark" aria-label="VisualDetox home">
+    <svg viewBox="0 0 28 28" width="28" height="28" fill="none" aria-hidden="true">
+      <rect width="28" height="28" rx="8" fill="currentColor"/>
+      <path d="M8 9v6m0 0 6 5 6-5m-12 0 6-5 6 5m0 0V9" stroke="#e0f7ab" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    VisualDetox
+  </a>
+  <nav class="header-nav" aria-label="Site navigation">
+    <a href="/#pipeline">How it works</a>
+    <a id="nav-github" href="https://github.com/shivamgoel234/VisualDetox" target="_blank" rel="noopener">GitHub <span class="arrow" aria-hidden="true"></span></a>
+  </nav>
+</header>
+
+<main id="home-view" class="view">
+  <section class="hero container" aria-labelledby="hero-heading">
+    <div class="hero-copy">
+      <h1 class="hero-heading" id="hero-heading" tabindex="-1">See the bug.<br><em>Verify the fix.</em></h1>
+      <p class="hero-sub">Audit a page across desktop and mobile. Find layout and contrast issues, repair a copy, and compare the evidence.</p>
+
+      <form class="audit-form" id="audit-form">
+        <label for="url-input">Page URL</label>
+        <div class="audit-input">
+          <input type="url" id="url-input" placeholder="https://example.com" required autocomplete="url" spellcheck="false" aria-describedby="audit-status">
+          <button class="btn-ink" id="run-live-btn" type="submit">
+            <span class="btn-label">Run audit</span><span class="icon-island"><span class="arrow" aria-hidden="true"></span></span>
+          </button>
+        </div>
+        <p id="audit-status" class="audit-status" role="status"></p>
+      </form>
+      <div class="audit-links"><a class="text-action" href="/#demo-pages">Try a demo</a>
+      <button class="text-action" id="show-runs-btn" type="button" aria-expanded="false" aria-controls="saved-runs-section">Browse saved runs <span class="arrow" aria-hidden="true"></span></button></div>
+    </div>
+
+    <figure class="hero-figure">
+      <div class="evidence">
+        <div class="evidence-header">
+          <div><span class="evidence-label">Saved comparison</span><strong>Northwind Coffee</strong></div>
+          <span class="evidence-resolution">Desktop · 1280 × 800</span>
+        </div>
+        <div class="figure-wrap" id="hero-slider-container">
+          <img src="/sample-runs/75afaa44/after_r1_desktop.png" width="1280" height="800" alt="Northwind Coffee after the visual fixes">
+        </div>
+        <div class="evidence-labels"><span>Before</span><span>After</span></div>
+        <div class="evidence-footer">
+          <span class="evidence-status"><span aria-hidden="true"></span>8 of 8 verified fixed</span>
+          <button id="open-sample-btn" type="button">Open report <span class="arrow" aria-hidden="true"></span></button>
+        </div>
+      </div>
+      <figcaption class="fig-caption">Drag the divider to compare the saved captures.</figcaption>
+    </figure>
+  </section>
+
+  <section id="saved-runs-section" class="saved-runs container" hidden aria-labelledby="saved-runs-heading">
+    <h2 class="section-heading" id="saved-runs-heading" tabindex="-1">Saved runs</h2>
+    <div id="saved-runs-list" class="runs-list" role="list" aria-live="polite"></div>
+  </section>
+
+  <section class="home-grid container" id="pipeline" aria-labelledby="pipeline-heading">
+    <div class="home-right">
+      <h2 class="section-heading" id="pipeline-heading">From URL to evidence.</h2>
+      <ol class="pipeline-steps">
+        <li><span class="step-num" aria-hidden="true">01</span><div><strong>Capture and measure</strong><p>Chromium captures desktop and mobile views. DOM checks measure contrast, clipping, overlap, and horizontal overflow.</p></div></li>
+        <li><span class="step-num" aria-hidden="true">02</span><div><strong>Review and repair</strong><p>Gemini reviews the captures and proposes HTML and CSS changes in a local copy of the page.</p></div></li>
+        <li><span class="step-num" aria-hidden="true">03</span><div><strong>Compare and verify</strong><p>Review the before-and-after screenshots, measurements, and HTML diff in one report.</p></div></li>
+      </ol>
+    </div>
+    <div class="home-left" id="demo-pages">
+      <h2 class="section-heading">Try a demo page.</h2>
+      <div class="site-list" aria-label="Demo pages">
+        <button class="site-option" type="button" aria-pressed="false" data-demo="demo1" data-path="/demo-sites/demo1.html">
+          <span><strong class="site-name">Horizon Travel</strong><span class="site-bugs">Overlapping text and low contrast</span></span><span class="arrow" aria-hidden="true"></span>
+        </button>
+        <button class="site-option" type="button" aria-pressed="false" data-demo="demo2" data-path="/demo-sites/demo2.html">
+          <span><strong class="site-name">LaunchPad</strong><span class="site-bugs">Clipped button and broken mobile grid</span></span><span class="arrow" aria-hidden="true"></span>
+        </button>
+        <button class="site-option" type="button" aria-pressed="false" data-demo="demo3" data-path="/demo-sites/demo3.html">
+          <span><strong class="site-name">Craft Studio</strong><span class="site-bugs">Misaligned cards and oversized heading</span></span><span class="arrow" aria-hidden="true"></span>
+        </button>
+        <button class="site-option" type="button" aria-pressed="false" data-demo="demo4" data-path="/demo-sites/demo4.html">
+          <span><strong class="site-name">Northwind Coffee</strong><span class="site-bugs">Overflow and unreadable hero text</span></span><span class="arrow" aria-hidden="true"></span>
+        </button>
+      </div>
+    </div>
+  </section>
+</main>
+
+<section id="progress-view" class="view" hidden aria-live="polite" aria-label="Analysis progress">
+  <div class="container progress-container"><h1 class="section-heading" tabindex="-1">Audit in progress</h1>
+    <div id="replay-notice" class="replay-notice" hidden>
+      <span class="replay-dot" aria-hidden="true"></span> Replay of a live run
+    </div>
+
+    <div class="progress-log" role="log" aria-label="Step log">
+      <div class="timeline" aria-hidden="true">
+        <div class="timeline-track"></div>
+        <div class="timeline-fill" id="timeline-fill"></div>
+      </div>
+      <ol id="steps-container" class="step-list"></ol>
+    </div>
+  </div>
+</section>
+
+
+<section id="result-view" class="view" hidden aria-label="Analysis results">
+
+
+  <div class="result-summary container reveal">
+    <h1 class="result-headline" id="result-headline" tabindex="-1"></h1>
+    <p class="result-sub" id="result-subline"></p>
+    <p class="result-note" id="result-note" role="status" hidden></p>
+  </div>
+
+
+  <div class="result-slider-section container reveal d1">
+    <div class="viewport-control">
+      <div class="seg-group" role="tablist" aria-label="Viewport and diff">
+        <button class="seg active" id="desktop-tab" role="tab" aria-controls="result-slider-wrap" aria-selected="true" data-viewport="desktop">Desktop</button>
+        <button class="seg" id="mobile-tab" role="tab" aria-controls="result-slider-wrap" aria-selected="false" tabindex="-1" data-viewport="mobile">Mobile</button>
+        <button class="seg seg-changes" role="tab" aria-controls="diff-panel" aria-selected="false" tabindex="-1" id="changes-tab">Changes</button>
+      </div>
+    </div>
+
+    <div class="result-slider-wrap" id="result-slider-wrap" role="tabpanel" aria-labelledby="desktop-tab" tabindex="0">
+      <div class="slider-figure-labels">
+        <span class="fig-label fig-label-before" id="fig-label-before">Fig. 1: Desktop, before</span>
+        <span class="fig-label fig-label-after"  id="fig-label-after" >Fig. 1: Desktop, after</span>
+      </div>
+      <div id="slider-container" class="slider-inner"></div>
+    </div>
+
+    <div id="diff-panel" class="diff-panel" role="tabpanel" aria-labelledby="changes-tab" tabindex="0" hidden></div>
+  </div>
+
+
+  <div class="issue-ledger container reveal d2">
+    <h2 class="ledger-heading">Issue ledger</h2><div class="ledger-scroll">
+    <table class="ledger-table" role="table" id="issue-table" aria-label="Issues found and their status">
+      <colgroup>
+        <col class="col-num">
+        <col class="col-desc">
+        <col class="col-measure">
+        <col class="col-checks">
+        <col class="col-status">
+      </colgroup>
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Issue</th>
+          <th scope="col">Measurement</th>
+          <th scope="col">Checks</th>
+          <th scope="col">Status</th>
+        </tr>
+      </thead>
+      <tbody id="issue-tbody"></tbody>
+    </table></div>
+  </div>
+
+
+  <div class="result-actions container reveal d3">
+    <a class="btn-ink" id="download-btn" download="fixed.html" hidden>Download HTML</a>
+    <a class="btn-ghost" id="open-fixed-btn" target="_blank" rel="noopener noreferrer" hidden>Preview fixed page</a>
+    <button class="btn-ghost" id="run-again-btn">Run again</button>
+    <button class="btn-ghost" id="feature-btn">Star as featured</button>
+    <button class="btn-text-only" id="home-btn">Back to audit</button>
+    <p class="result-note" id="feature-status" role="status"></p>
+  </div>
+
+</section>
+
+
+<section id="error-view" class="view" hidden aria-live="assertive" role="alert">
+  <div class="container error-container">
+    <h1 class="error-heading" tabindex="-1">Something went wrong</h1>
+    <p class="error-body" id="error-msg"></p>
+    <div class="error-actions">
+      <button class="btn-ink" id="retry-btn">Retry</button>
+    <button class="btn-ghost" id="error-home-btn">← Back</button>
+    </div>
+  </div>
+</section>
+
+
+<svg id="svg-check-tpl" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 14"
+     fill="none" aria-hidden="true"
+     style="position:absolute;width:0;height:0;overflow:hidden;display:none">
+  <circle cx="7" cy="7" r="6" stroke="currentColor" stroke-width="1.25"/>
+  <path class="check-stroke" d="M3.5 7.5 6 10l5-6"
+        stroke="currentColor" stroke-width="1.25"
+        stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+</svg>
+
+<footer class="site-footer container">
+  <span>VisualDetox</span>
+  <a href="https://github.com/suryavashisth2010-ux/SiteSurgeon">Based on SiteSurgeon</a>
+</footer>
+<script defer src="/static/js/slider.js"></script>
+<script defer src="/static/js/app.js"></script>
+</body>
+</html>

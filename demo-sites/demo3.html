@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Craft Studio — Demo 3</title>
+  <style>
+    /* ── Reset & base ──────────────────────────────────────────────────────── */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Segoe UI', Arial, sans-serif; background: #fafafa; color: #333; }
+
+    /* ── Nav ───────────────────────────────────────────────────────────────── */
+    nav {
+      background: #fff;
+      border-bottom: 1px solid #ececec;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2.5rem;
+      height: 60px;
+    }
+    nav .logo { font-weight: 800; font-size: 1.25rem; color: #d4531a; }
+    nav ul { list-style: none; display: flex; gap: 1.5rem; }
+    nav ul a { color: #555; text-decoration: none; font-size: .9rem; }
+
+    /* ── Page header ─────────────────────────────────────────────────────────
+       BUG 1 ─ The <h1> font-size is 96px — enormous relative to body text,
+                shatters visual hierarchy and pushes content below the fold.  */
+    .page-header {
+      background: linear-gradient(135deg, #fff8f5 0%, #fdeee7 100%);
+      padding: 2.5rem 2.5rem 2rem;
+      border-bottom: 1px solid #f0e0d8;
+    }
+    .page-header h1 {
+      /* BUG 1: oversized heading */
+      font-size: 96px;
+      font-weight: 900;
+      color: #d4531a;
+      line-height: 1;
+    }
+    .page-header p {
+      margin-top: .75rem;
+      font-size: 1rem;
+      color: #666;
+      max-width: 560px;
+    }
+
+    /* ── Filter bar ─────────────────────────────────────────────────────────── */
+    .filters {
+      display: flex;
+      gap: .75rem;
+      padding: 1.25rem 2.5rem;
+      background: #fff;
+      border-bottom: 1px solid #ececec;
+      flex-wrap: wrap;
+    }
+    .filter-btn {
+      padding: .4rem 1rem;
+      border: 1px solid #ddd;
+      border-radius: 999px;
+      background: #fff;
+      font-size: .85rem;
+      cursor: pointer;
+      color: #444;
+    }
+    .filter-btn.active { background: #d4531a; color: #fff; border-color: #d4531a; }
+
+    /* ── Product grid ────────────────────────────────────────────────────────
+       BUG 2 ─ Cards use absolute pixel margins that misalign them: the first
+                card is shifted right by 40px and the last card's right edge
+                bleeds 60px outside the container.                            */
+    .product-grid {
+      padding: 2rem 2.5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .product-grid h2 {
+      font-size: 1.3rem;
+      color: #222;
+      margin-bottom: 1.25rem;
+    }
+
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      /* Using gap would fix it — instead we use inconsistent margins (BUG 2) */
+      gap: 0;
+    }
+
+    .product-card {
+      width: 260px;
+      background: #fff;
+      border: 1px solid #ececec;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 1px 4px rgba(0,0,0,.06);
+      /* BUG 2: hard-coded, inconsistent margins misalign every card */
+      margin-right: 28px;
+      margin-bottom: 1.5rem;
+    }
+    /* BUG 2: first card is pushed 40px to the right by a positive margin-left */
+    .product-card:first-child { margin-left: 40px; }
+    /* BUG 2: last card overflows its container */
+    .product-card:last-child  { margin-right: -60px; }
+
+    /* Colour swatch stands in for a product photo */
+    .card-thumb {
+      height: 160px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+    }
+    .card-body { padding: 1rem; }
+    .card-body h3 { font-size: 1rem; color: #222; margin-bottom: .25rem; }
+    .card-body .price { font-size: 1.1rem; font-weight: 700; color: #d4531a; }
+    .card-body .meta  { font-size: .8rem; color: #999; margin-top: .2rem; }
+    .card-body .add-btn {
+      display: block;
+      width: 100%;
+      margin-top: .75rem;
+      padding: .5rem;
+      background: #d4531a;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      font-size: .85rem;
+      cursor: pointer;
+      text-align: center;
+      text-decoration: none;
+    }
+
+    /* ── Footer ────────────────────────────────────────────────────────────── */
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      font-size: .8rem;
+      color: #aaa;
+      border-top: 1px solid #ececec;
+      margin-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <span class="logo">🎨 Craft Studio</span>
+    <ul>
+      <li><a href="#">Shop</a></li>
+      <li><a href="#">Makers</a></li>
+      <li><a href="#">Blog</a></li>
+      <li><a href="#">Cart (0)</a></li>
+    </ul>
+  </nav>
+
+  <!-- BUG 1: h1 font-size 96px is way too big -->
+  <header class="page-header">
+    <h1>Shop</h1>
+    <p>Handmade goods from independent makers around the world. Free shipping on orders over $50.</p>
+  </header>
+
+  <div class="filters">
+    <button class="filter-btn active">All</button>
+    <button class="filter-btn">Ceramics</button>
+    <button class="filter-btn">Textiles</button>
+    <button class="filter-btn">Jewellery</button>
+    <button class="filter-btn">Prints</button>
+    <button class="filter-btn">Candles</button>
+  </div>
+
+  <!-- BUG 2: misaligned cards — first-child margin-left: 40px,
+              last-child margin-right: -60px, inconsistent gaps -->
+  <section class="product-grid">
+    <h2>Featured items</h2>
+    <div class="cards">
+      <div class="product-card">
+        <div class="card-thumb" style="background:#fde8db;">🏺</div>
+        <div class="card-body">
+          <h3>Terracotta Vase</h3>
+          <div class="price">$42.00</div>
+          <div class="meta">by Maya Ceramics · ★ 4.9</div>
+          <a class="add-btn" href="#">Add to cart</a>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="card-thumb" style="background:#dbeafe;">🧣</div>
+        <div class="card-body">
+          <h3>Wool Scarf</h3>
+          <div class="price">$68.00</div>
+          <div class="meta">by Loom &amp; Thread · ★ 4.7</div>
+          <a class="add-btn" href="#">Add to cart</a>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="card-thumb" style="background:#d1fae5;">🕯️</div>
+        <div class="card-body">
+          <h3>Soy Candle Set</h3>
+          <div class="price">$34.00</div>
+          <div class="meta">by Glow Co · ★ 4.8</div>
+          <a class="add-btn" href="#">Add to cart</a>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="card-thumb" style="background:#ede9fe;">🖼️</div>
+        <div class="card-body">
+          <h3>Botanical Print</h3>
+          <div class="price">$28.00</div>
+          <div class="meta">by Inkwell Press · ★ 4.6</div>
+          <a class="add-btn" href="#">Add to cart</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>© 2026 Craft Studio. Made with ♥ for independent makers.</footer>
+
+</body>
+</html>

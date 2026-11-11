@@ -1,0 +1,533 @@
+{
+  "run_id": "75afaa44",
+  "url": "http://127.0.0.1:8000/demo-sites/demo4.html",
+  "mock_mode": false,
+  "total_issues": 8,
+  "total_fixed": 8,
+  "total_ignored": 0,
+  "ignored": [],
+  "raw_findings_count": 46,
+  "rounds_used": 1,
+  "stop_reason": "all_fixed",
+  "fixed_html_url": "/output/75afaa44/fixed.html",
+  "before_screenshots": {
+    "desktop": "/output/75afaa44/before_desktop.png",
+    "mobile": "/output/75afaa44/before_mobile.png"
+  },
+  "final_after_screenshots": {
+    "desktop": "/output/75afaa44/after_r1_desktop.png",
+    "mobile": "/output/75afaa44/after_r1_mobile.png"
+  },
+  "analysis_issues": [
+    {
+      "id": "issue-1",
+      "severity": "high",
+      "description": "White hero heading overlaps the light gradient area reducing readability.",
+      "element_description": "hero heading",
+      "viewport": "desktop",
+      "annotation_url": "/output/75afaa44/annotated_issue-1_dom_box.png",
+      "annotation_method": "dom_box"
+    },
+    {
+      "id": "issue-2",
+      "severity": "high",
+      "description": "Secondary button white text on light background is hard to read.",
+      "element_description": "secondary button",
+      "viewport": "desktop",
+      "annotation_url": "/output/75afaa44/annotated_issue-2_sam_box.png",
+      "annotation_method": "sam_box"
+    },
+    {
+      "id": "issue-3",
+      "severity": "medium",
+      "description": "Hero subtext has low contrast against the background image.",
+      "element_description": "hero subtext",
+      "viewport": "desktop",
+      "annotation_url": "/output/75afaa44/annotated_issue-3_dom_box.png",
+      "annotation_method": "dom_box"
+    },
+    {
+      "id": "issue-4",
+      "severity": "medium",
+      "description": "TODAY'S SPECIALS heading is excessively large and breaks visual hierarchy.",
+      "element_description": "specials heading",
+      "viewport": "desktop",
+      "annotation_url": "/output/75afaa44/annotated_issue-4_dom_box.png",
+      "annotation_method": "dom_box"
+    },
+    {
+      "id": "issue-5",
+      "severity": "high",
+      "description": "Menu cards extend 68px beyond the right edge causing horizontal overflow.",
+      "element_description": "menu card",
+      "viewport": "desktop",
+      "annotation_url": "/output/75afaa44/annotated_issue-5_dom_box.png",
+      "annotation_method": "dom_box"
+    },
+    {
+      "id": "issue-6",
+      "severity": "high",
+      "description": "Add to cart buttons are clipped off the right edge of the viewport.",
+      "element_description": "add button",
+      "viewport": "desktop",
+      "annotation_url": "/output/75afaa44/annotated_issue-6_sam_box.png",
+      "annotation_method": "sam_box"
+    }
+  ],
+  "per_issue": [
+    {
+      "id": "issue-1",
+      "description": "White hero heading overlaps the light gradient area reducing readability.",
+      "severity": "high",
+      "dom_type": "horizontal_overflow",
+      "dom_selector": "p",
+      "dom_signal": "fixed",
+      "dom_before": "51px overflow (target: 0px)",
+      "dom_after": null,
+      "spark_signal": true,
+      "spark_evidence": "The hero heading now sits on a solid dark card over a dark brown background with no light gradient behind it, so the white text is clearly readable.",
+      "fixed": true,
+      "signals_agreed": true
+    },
+    {
+      "id": "issue-2",
+      "description": "Secondary button white text on light background is hard to read.",
+      "severity": "high",
+      "dom_type": "low_contrast",
+      "dom_selector": "a",
+      "dom_signal": "fixed",
+      "dom_before": "1:1 (target: \u22654.5:1)",
+      "dom_after": null,
+      "spark_signal": true,
+      "spark_evidence": "The See the menu secondary button now has a solid white background with dark text, making it clearly readable.",
+      "fixed": true,
+      "signals_agreed": true
+    },
+    {
+      "id": "issue-3",
+      "description": "Menu cards extend 68px beyond the right edge causing horizontal overflow.",
+      "severity": "high",
+      "dom_type": "low_contrast",
+      "dom_selector": "p",
+      "dom_signal": "fixed",
+      "dom_before": "1.1:1 (target: \u22654.5:1)",
+      "dom_after": null,
+      "spark_signal": true,
+      "spark_evidence": "All four menu cards are fully contained within the viewport width with no right-edge overflow visible.",
+      "fixed": true,
+      "signals_agreed": true
+    },
+    {
+      "id": "issue-4",
+      "description": "Add to cart buttons are clipped off the right edge of the viewport.",
+      "severity": "high",
+      "dom_type": "horizontal_overflow",
+      "dom_selector": "li",
+      "dom_signal": "fixed",
+      "dom_before": "3px overflow (target: 0px)",
+      "dom_after": null,
+      "spark_signal": true,
+      "spark_evidence": "The card row fits entirely inside the viewport width, so no buttons are clipped off the right edge.",
+      "fixed": true,
+      "signals_agreed": true
+    },
+    {
+      "id": "issue-5",
+      "description": "Text contrast ratio 1:1 is below the WCAG AA minimum of 4.5:1.",
+      "severity": "high",
+      "dom_type": "low_contrast",
+      "dom_selector": "h1",
+      "dom_signal": "fixed",
+      "dom_before": "1:1 (target: \u22654.5:1)",
+      "dom_after": null,
+      "spark_signal": true,
+      "spark_evidence": "White-on-light low-contrast text is gone, with hero and button text now showing strong dark-on-light or light-on-dark contrast.",
+      "fixed": true,
+      "signals_agreed": true
+    },
+    {
+      "id": "issue-6",
+      "description": "Hero subtext has low contrast against the background image.",
+      "severity": "medium",
+      "dom_type": "horizontal_overflow",
+      "dom_selector": "a",
+      "dom_signal": "fixed",
+      "dom_before": "68px overflow (target: 0px)",
+      "dom_after": null,
+      "spark_signal": true,
+      "spark_evidence": "The hero subtext now appears in white on a solid dark panel, giving high contrast against the background.",
+      "fixed": true,
+      "signals_agreed": true
+    },
+    {
+      "id": "issue-7",
+      "description": "TODAY'S SPECIALS heading is excessively large and breaks visual hierarchy.",
+      "severity": "medium",
+      "dom_type": "outside_viewport",
+      "dom_selector": "p",
+      "dom_signal": "fixed",
+      "dom_before": "outside viewport (target: inside)",
+      "dom_after": null,
+      "spark_signal": true,
+      "spark_evidence": "The TODAY'S SPECIALS heading is now much smaller and fits on one line, restoring normal visual hierarchy.",
+      "fixed": true,
+      "signals_agreed": true
+    },
+    {
+      "id": "issue-8",
+      "description": "Element is fully outside the visible viewport.",
+      "severity": "medium",
+      "dom_type": "outside_viewport",
+      "dom_selector": "div.menu-card",
+      "dom_signal": "fixed",
+      "dom_before": "outside viewport (target: inside)",
+      "dom_after": null,
+      "spark_signal": true,
+      "spark_evidence": "Content that was fully below the fold such as the menu cards is now partially visible within the viewport at the bottom.",
+      "fixed": true,
+      "signals_agreed": true
+    }
+  ],
+  "round_reports": [
+    {
+      "round": 1,
+      "fix": {
+        "run_id": "75afaa44",
+        "url": "http://127.0.0.1:8000/demo-sites/demo4.html",
+        "fixed_html_path": "C:\\Users\\DELL\\SiteSurgeon\\app\\..\\output\\75afaa44\\fixed.html",
+        "fixed_html_url": "/output/75afaa44/fixed.html",
+        "issues_sent": [
+          {
+            "id": "issue-1",
+            "severity": "high",
+            "description": "White hero heading overlaps the light gradient area reducing readability.",
+            "element_description": "hero heading",
+            "viewport": "desktop",
+            "annotation": {
+              "path": "C:\\Users\\DELL\\SiteSurgeon\\app\\..\\output\\75afaa44\\annotated_issue-1_dom_box.png",
+              "method": "dom_box",
+              "boxes": []
+            },
+            "dom_bbox": {
+              "x": 1091,
+              "y": 1003,
+              "w": 240,
+              "h": 18
+            },
+            "dom_type": "horizontal_overflow",
+            "dom_selector": "p"
+          },
+          {
+            "id": "issue-2",
+            "severity": "high",
+            "description": "Secondary button white text on light background is hard to read.",
+            "element_description": "secondary button",
+            "viewport": "desktop",
+            "annotation": {
+              "path": "C:\\Users\\DELL\\SiteSurgeon\\app\\..\\output\\75afaa44\\annotated_issue-2_sam_box.png",
+              "method": "sam_box",
+              "boxes": [
+                {
+                  "object_id": 1,
+                  "x1": 248,
+                  "y1": 370,
+                  "x2": 451,
+                  "y2": 420,
+                  "w": 1280,
+                  "h": 800
+                },
+                {
+                  "object_id": null,
+                  "x1": 32,
+                  "y1": 370,
+                  "x2": 231,
+                  "y2": 420,
+                  "w": 1280,
+                  "h": 800
+                }
+              ]
+            },
+            "dom_bbox": {
+              "x": 467,
+              "y": 1825,
+              "w": 345,
+              "h": 23
+            },
+            "dom_type": "low_contrast",
+            "dom_selector": "a"
+          },
+          {
+            "id": "issue-3",
+            "severity": "high",
+            "description": "Menu cards extend 68px beyond the right edge causing horizontal overflow.",
+            "element_description": "menu card",
+            "viewport": "desktop",
+            "annotation": {
+              "path": "C:\\Users\\DELL\\SiteSurgeon\\app\\..\\output\\75afaa44\\annotated_issue-5_dom_box.png",
+              "method": "dom_box",
+              "boxes": []
+            },
+            "dom_bbox": {
+              "x": 32,
+              "y": 300,
+              "w": 560,
+              "h": 46
+            },
+            "dom_type": "low_contrast",
+            "dom_selector": "p"
+          },
+          {
+            "id": "issue-4",
+            "severity": "high",
+            "description": "Add to cart buttons are clipped off the right edge of the viewport.",
+            "element_description": "add button",
+            "viewport": "desktop",
+            "annotation": {
+              "path": "C:\\Users\\DELL\\SiteSurgeon\\app\\..\\output\\75afaa44\\annotated_issue-6_sam_box.png",
+              "method": "sam_box",
+              "boxes": [
+                {
+                  "object_id": 1,
+                  "x1": 248,
+                  "y1": 370,
+                  "x2": 451,
+                  "y2": 421,
+                  "w": 1280,
+                  "h": 800
+                },
+                {
+                  "object_id": null,
+                  "x1": 32,
+                  "y1": 370,
+                  "x2": 231,
+                  "y2": 420,
+                  "w": 1280,
+                  "h": 800
+                }
+              ]
+            },
+            "dom_bbox": {
+              "x": 356,
+              "y": 9,
+              "w": 37,
+              "h": 42
+            },
+            "dom_type": "horizontal_overflow",
+            "dom_selector": "li"
+          },
+          {
+            "id": "issue-5",
+            "severity": "high",
+            "description": "Text contrast ratio 1:1 is below the WCAG AA minimum of 4.5:1.",
+            "element_description": "low contrast text",
+            "viewport": "desktop",
+            "dom_bbox": {
+              "x": 32,
+              "y": 179,
+              "w": 560,
+              "h": 106
+            },
+            "dom_type": "low_contrast",
+            "dom_selector": "h1"
+          },
+          {
+            "id": "issue-6",
+            "severity": "medium",
+            "description": "Hero subtext has low contrast against the background image.",
+            "element_description": "hero subtext",
+            "viewport": "desktop",
+            "annotation": {
+              "path": "C:\\Users\\DELL\\SiteSurgeon\\app\\..\\output\\75afaa44\\annotated_issue-3_dom_box.png",
+              "method": "dom_box",
+              "boxes": []
+            },
+            "dom_bbox": {
+              "x": 356,
+              "y": 10,
+              "w": 37,
+              "h": 20
+            },
+            "dom_type": "horizontal_overflow",
+            "dom_selector": "a"
+          },
+          {
+            "id": "issue-7",
+            "severity": "medium",
+            "description": "TODAY'S SPECIALS heading is excessively large and breaks visual hierarchy.",
+            "element_description": "specials heading",
+            "viewport": "desktop",
+            "annotation": {
+              "path": "C:\\Users\\DELL\\SiteSurgeon\\app\\..\\output\\75afaa44\\annotated_issue-4_dom_box.png",
+              "method": "dom_box",
+              "boxes": []
+            },
+            "dom_bbox": {
+              "x": 1389,
+              "y": 1003,
+              "w": 315,
+              "h": 18
+            },
+            "dom_type": "outside_viewport",
+            "dom_selector": "p"
+          },
+          {
+            "id": "issue-8",
+            "severity": "medium",
+            "description": "Element is fully outside the visible viewport.",
+            "element_description": "off-screen element",
+            "viewport": "desktop",
+            "dom_bbox": {
+              "x": 1372,
+              "y": 800,
+              "w": 349,
+              "h": 321
+            },
+            "dom_type": "outside_viewport",
+            "dom_selector": "div.menu-card"
+          }
+        ],
+        "issues_count": 8,
+        "safety": {
+          "length": 13793,
+          "has_doctype": true,
+          "has_body": true,
+          "orig_word_count": 146,
+          "fixed_word_count": 146,
+          "retention_ratio": 1.0,
+          "missing_words": []
+        },
+        "safety_ok": true,
+        "retried": false,
+        "error": null
+      },
+      "verify": {
+        "run_id": "75afaa44",
+        "round_num": 1,
+        "after_screenshots": {
+          "desktop": "C:\\Users\\DELL\\SiteSurgeon\\app\\..\\output\\75afaa44\\after_r1_desktop.png",
+          "mobile": "C:\\Users\\DELL\\SiteSurgeon\\app\\..\\output\\75afaa44\\after_r1_mobile.png"
+        },
+        "after_dom_findings": [],
+        "after_ignored": [],
+        "results": [
+          {
+            "id": "issue-1",
+            "description": "White hero heading overlaps the light gradient area reducing readability.",
+            "severity": "high",
+            "dom_type": "horizontal_overflow",
+            "dom_selector": "p",
+            "dom_signal": "fixed",
+            "dom_before": "51px overflow (target: 0px)",
+            "dom_after": null,
+            "spark_signal": true,
+            "spark_evidence": "The hero heading now sits on a solid dark card over a dark brown background with no light gradient behind it, so the white text is clearly readable.",
+            "fixed": true,
+            "signals_agreed": true
+          },
+          {
+            "id": "issue-2",
+            "description": "Secondary button white text on light background is hard to read.",
+            "severity": "high",
+            "dom_type": "low_contrast",
+            "dom_selector": "a",
+            "dom_signal": "fixed",
+            "dom_before": "1:1 (target: \u22654.5:1)",
+            "dom_after": null,
+            "spark_signal": true,
+            "spark_evidence": "The See the menu secondary button now has a solid white background with dark text, making it clearly readable.",
+            "fixed": true,
+            "signals_agreed": true
+          },
+          {
+            "id": "issue-3",
+            "description": "Menu cards extend 68px beyond the right edge causing horizontal overflow.",
+            "severity": "high",
+            "dom_type": "low_contrast",
+            "dom_selector": "p",
+            "dom_signal": "fixed",
+            "dom_before": "1.1:1 (target: \u22654.5:1)",
+            "dom_after": null,
+            "spark_signal": true,
+            "spark_evidence": "All four menu cards are fully contained within the viewport width with no right-edge overflow visible.",
+            "fixed": true,
+            "signals_agreed": true
+          },
+          {
+            "id": "issue-4",
+            "description": "Add to cart buttons are clipped off the right edge of the viewport.",
+            "severity": "high",
+            "dom_type": "horizontal_overflow",
+            "dom_selector": "li",
+            "dom_signal": "fixed",
+            "dom_before": "3px overflow (target: 0px)",
+            "dom_after": null,
+            "spark_signal": true,
+            "spark_evidence": "The card row fits entirely inside the viewport width, so no buttons are clipped off the right edge.",
+            "fixed": true,
+            "signals_agreed": true
+          },
+          {
+            "id": "issue-5",
+            "description": "Text contrast ratio 1:1 is below the WCAG AA minimum of 4.5:1.",
+            "severity": "high",
+            "dom_type": "low_contrast",
+            "dom_selector": "h1",
+            "dom_signal": "fixed",
+            "dom_before": "1:1 (target: \u22654.5:1)",
+            "dom_after": null,
+            "spark_signal": true,
+            "spark_evidence": "White-on-light low-contrast text is gone, with hero and button text now showing strong dark-on-light or light-on-dark contrast.",
+            "fixed": true,
+            "signals_agreed": true
+          },
+          {
+            "id": "issue-6",
+            "description": "Hero subtext has low contrast against the background image.",
+            "severity": "medium",
+            "dom_type": "horizontal_overflow",
+            "dom_selector": "a",
+            "dom_signal": "fixed",
+            "dom_before": "68px overflow (target: 0px)",
+            "dom_after": null,
+            "spark_signal": true,
+            "spark_evidence": "The hero subtext now appears in white on a solid dark panel, giving high contrast against the background.",
+            "fixed": true,
+            "signals_agreed": true
+          },
+          {
+            "id": "issue-7",
+            "description": "TODAY'S SPECIALS heading is excessively large and breaks visual hierarchy.",
+            "severity": "medium",
+            "dom_type": "outside_viewport",
+            "dom_selector": "p",
+            "dom_signal": "fixed",
+            "dom_before": "outside viewport (target: inside)",
+            "dom_after": null,
+            "spark_signal": true,
+            "spark_evidence": "The TODAY'S SPECIALS heading is now much smaller and fits on one line, restoring normal visual hierarchy.",
+            "fixed": true,
+            "signals_agreed": true
+          },
+          {
+            "id": "issue-8",
+            "description": "Element is fully outside the visible viewport.",
+            "severity": "medium",
+            "dom_type": "outside_viewport",
+            "dom_selector": "div.menu-card",
+            "dom_signal": "fixed",
+            "dom_before": "outside viewport (target: inside)",
+            "dom_after": null,
+            "spark_signal": true,
+            "spark_evidence": "Content that was fully below the fold such as the menu cards is now partially visible within the viewport at the bottom.",
+            "fixed": true,
+            "signals_agreed": true
+          }
+        ],
+        "fixed_count": 8,
+        "unfixed_count": 0,
+        "unfixed_issues": []
+      }
+    }
+  ],
+  "error": null
+}
